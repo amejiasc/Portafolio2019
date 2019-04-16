@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosteria.Front", "Hosteria.Front\Hosteria.Front.csproj", "{E3C8DF81-8B55-4068-9A0C-AAAA3073B8AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20921833-60CA-4330-A73D-49BFAFB145A2} = {20921833-60CA-4330-A73D-49BFAFB145A2}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NEGOCIO", "NEGOCIO", "{E41B1CC1-058B-4112-8E26-9EA64FC3ABBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FRONT", "FRONT", "{4B59D2C7-1C60-4256-8BA3-AB98824B4BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosteria.Negocio", "Hosteria.Negocio\Hosteria.Negocio.csproj", "{20921833-60CA-4330-A73D-49BFAFB145A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LIBRERIA", "LIBRERIA", "{97C3F6FF-0413-48FE-8F9E-1FBCC58BAA41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosteria.Clases", "Hosteria.Clases\Hosteria.Clases.csproj", "{9FB33608-EAE0-4C2C-9435-9E9870647E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosteria.Tipos", "Hosteria.Tipos\Hosteria.Tipos.csproj", "{C94D2479-C2C5-4E2A-9E44-EE7ACAC5AEB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosteria.Store", "Hosteria.Store\Hosteria.Store.csproj", "{C04F58E2-41FE-44BD-B716-C38BFC773D8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3C8DF81-8B55-4068-9A0C-AAAA3073B8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3C8DF81-8B55-4068-9A0C-AAAA3073B8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3C8DF81-8B55-4068-9A0C-AAAA3073B8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3C8DF81-8B55-4068-9A0C-AAAA3073B8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20921833-60CA-4330-A73D-49BFAFB145A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20921833-60CA-4330-A73D-49BFAFB145A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20921833-60CA-4330-A73D-49BFAFB145A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20921833-60CA-4330-A73D-49BFAFB145A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB33608-EAE0-4C2C-9435-9E9870647E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB33608-EAE0-4C2C-9435-9E9870647E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB33608-EAE0-4C2C-9435-9E9870647E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB33608-EAE0-4C2C-9435-9E9870647E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94D2479-C2C5-4E2A-9E44-EE7ACAC5AEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94D2479-C2C5-4E2A-9E44-EE7ACAC5AEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94D2479-C2C5-4E2A-9E44-EE7ACAC5AEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94D2479-C2C5-4E2A-9E44-EE7ACAC5AEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C04F58E2-41FE-44BD-B716-C38BFC773D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C04F58E2-41FE-44BD-B716-C38BFC773D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C04F58E2-41FE-44BD-B716-C38BFC773D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C04F58E2-41FE-44BD-B716-C38BFC773D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3C8DF81-8B55-4068-9A0C-AAAA3073B8AD} = {4B59D2C7-1C60-4256-8BA3-AB98824B4BBE}
+		{20921833-60CA-4330-A73D-49BFAFB145A2} = {E41B1CC1-058B-4112-8E26-9EA64FC3ABBC}
+		{9FB33608-EAE0-4C2C-9435-9E9870647E40} = {97C3F6FF-0413-48FE-8F9E-1FBCC58BAA41}
+		{C94D2479-C2C5-4E2A-9E44-EE7ACAC5AEB4} = {97C3F6FF-0413-48FE-8F9E-1FBCC58BAA41}
+		{C04F58E2-41FE-44BD-B716-C38BFC773D8F} = {E41B1CC1-058B-4112-8E26-9EA64FC3ABBC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDC71D92-5702-4698-BA00-6E10EC96B46B}
+	EndGlobalSection
+EndGlobal
