@@ -1,5 +1,6 @@
 ﻿using Hosteria.Clases.Entrada;
 using Hosteria.Clases.Respuesta;
+using Hosteria.Negocio.Tipos;
 using Hosteria.Tipos.Store;
 using System;
 using System.Collections.Generic;
@@ -16,83 +17,34 @@ namespace Hosteria.Negocio
     public class ServicioUsuario : IServicioUsuario
     {
 
-        //public async Task<RespuestaUsuarioCrear> InsertarAsync(IUsuario usuario)
-        //{
-        //    RespuestaUsuarioCrear respuestaUsuarioCrear = new RespuestaUsuarioCrear();
-        //    Tipos.Store.IServicioUsuario servicioUsuario = new Store.ServicioUsuario();
-        //    int idUsuario = await servicioUsuario.InsertarAsync(usuario);
-        //    if (idUsuario.Equals(0))
-        //    {
-        //        respuestaUsuarioCrear.Exito = false;
-        //        respuestaUsuarioCrear.MotivoNoExito = MotivoNoExitoUsuarioCrear.ErrorNoControlado;
-        //        respuestaUsuarioCrear.Usuario = new Clases.Usuario();
-        //        return respuestaUsuarioCrear;
-        //    }
-
-        //    respuestaUsuarioCrear.Exito = true;
-        //    respuestaUsuarioCrear.Usuario = await servicioUsuario.TraerAsync(idUsuario, string.Empty);
-
-        //    return respuestaUsuarioCrear;
-
-        //}
-
-        //public async Task<RespuestaUsuarioActualizar> ActualizarAsync(IUsuario usuario)
-        //{
-        //    RespuestaUsuarioActualizar respuestaUsuario = new RespuestaUsuarioActualizar();
-        //    Tipos.Store.IServicioUsuario servicioUsuario = new Store.ServicioUsuario();
-        //    bool exito = await servicioUsuario.ActualizarAsync(usuario);
-        //    if (exito)
-        //    {
-        //        respuestaUsuario.Exito = false;
-        //        respuestaUsuario.MotivoNoExito = MotivoNoExitoActualizarUsusario.ErrorNoControlado;
-        //        respuestaUsuario.Usuario = new Clases.Usuario();
-        //        return respuestaUsuario;
-        //    }
-
-        //    respuestaUsuario.Exito = true;
-        //    respuestaUsuario.Usuario = await servicioUsuario.TraerAsync(usuario.IdUsuario, string.Empty);
-
-        //    return respuestaUsuario;
-
-        //}
-
-        //public async Task<RespuestaUsuarioEliminar> EliminarAsync(IUsuario usuario)
-        //{
-        //    RespuestaUsuarioEliminar respuestaUsuario = new RespuestaUsuarioEliminar();
-        //    Tipos.Store.IServicioUsuario servicioUsuario = new Store.ServicioUsuario();
-        //    bool exito = await servicioUsuario.EliminarAsync(usuario);
-        //    if (exito)
-        //    {
-        //        respuestaUsuario.Exito = false;
-        //        respuestaUsuario.MotivoNoExito = MotivoNoExitoEliminarUsusario.ErrorNoControlado;
-        //        respuestaUsuario.Usuario = new Clases.Usuario();
-        //        return respuestaUsuario;
-        //    }
-
-        //    respuestaUsuario.Exito = true;
-        //    respuestaUsuario.Usuario = await servicioUsuario.TraerAsync(usuario.IdUsuario, string.Empty);
-
-        //    return respuestaUsuario;
-
-        //}
-
-        public async Task<RespuestaUsuarioTraer> TraerAsync(EntradaUsuarioTraer entradaUsuarioTraer)
+        public async Task<Clases.Respuesta> TraerAsync(Clases.Entrada entradaDatos)
         {
             RespuestaUsuarioTraer respuestaUsuario = new RespuestaUsuarioTraer();
-            Tipos.Store.IServicioUsuario servicioUsuario = new Store.ServicioUsuario();
+            Hosteria.Tipos.Store.IServicioUsuario servicioUsuario = new Store.ServicioUsuario();
+
+            object ObjetoDeserializado;
+            bool SePudoDeserializar = false; 
+
+            EntradaUsuarioTraer entradaUsuarioTraer = new EntradaUsuarioTraer();
+            ObjetoDeserializado = entradaUsuarioTraer.FromJson(ref SePudoDeserializar, entradaDatos.Datos);
+            entradaUsuarioTraer = (EntradaUsuarioTraer)ObjetoDeserializado;
+
             IUsuario usuario = await servicioUsuario.TraerAsync(entradaUsuarioTraer.IdUsuario, entradaUsuarioTraer.RutUsuario);
+
+            Hosteria.Negocio.Clases.Respuesta Respuesta = new Clases.Respuesta();
             if (usuario == null)
             {
                 respuestaUsuario.Exito = false;
                 respuestaUsuario.MotivoNoExito = MotivoNoExitoTraerUsusario.UsuarioNoExiste;
-                respuestaUsuario.Usuario = new Clases.Usuario();
-                return respuestaUsuario;
+                respuestaUsuario.Usuario = new Hosteria.Clases.Usuario();
+            }
+            else {
+                respuestaUsuario.Exito = true;
+                respuestaUsuario.Usuario = (Hosteria.Clases.Usuario)usuario;
             }
 
-            respuestaUsuario.Exito = true;
-            respuestaUsuario.Usuario = (Clases.Usuario)usuario;
-
-            return respuestaUsuario;
+            Respuesta = new Clases.Respuesta(respuestaUsuario);
+            return Respuesta;
 
         }
     }

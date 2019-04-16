@@ -25,6 +25,6 @@ namespace Hosteria.Negocio
         //Task<RespuestaUsuarioEliminar> EliminarAsync(IUsuario usuario);
 
         [OperationContract(Name = "TraerUsuario")]
-        Task<RespuestaUsuarioTraer> TraerAsync(EntradaUsuarioTraer entradaUsuarioTraer);
+        Task<Clases.Respuesta> TraerAsync(Clases.Entrada entradaDatos);
     }
 }

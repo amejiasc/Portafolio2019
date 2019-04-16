@@ -9,170 +9,58 @@
 //------------------------------------------------------------------------------
 
 namespace Hosteria.Front.ServicioUsuario {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntradaUsuarioTraer", Namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada")]
-    [System.SerializableAttribute()]
-    public partial class EntradaUsuarioTraer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdUsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RutUsuarioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUsuario {
-            get {
-                return this.IdUsuarioField;
-            }
-            set {
-                if ((this.IdUsuarioField.Equals(value) != true)) {
-                    this.IdUsuarioField = value;
-                    this.RaisePropertyChanged("IdUsuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RutUsuario {
-            get {
-                return this.RutUsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RutUsuarioField, value) != true)) {
-                    this.RutUsuarioField = value;
-                    this.RaisePropertyChanged("RutUsuario");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaUsuarioTraer", Namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hosteria.Front.ServicioUsuario.MotivoNoExitoTraerUsusario))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hosteria.Front.ServicioUsuario.EntradaUsuarioTraer))]
-    public partial class RespuestaUsuarioTraer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ExitoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Hosteria.Front.ServicioUsuario.MotivoNoExitoTraerUsusario MotivoNoExitoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private object UsuarioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Exito {
-            get {
-                return this.ExitoField;
-            }
-            set {
-                if ((this.ExitoField.Equals(value) != true)) {
-                    this.ExitoField = value;
-                    this.RaisePropertyChanged("Exito");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Hosteria.Front.ServicioUsuario.MotivoNoExitoTraerUsusario MotivoNoExito {
-            get {
-                return this.MotivoNoExitoField;
-            }
-            set {
-                if ((this.MotivoNoExitoField.Equals(value) != true)) {
-                    this.MotivoNoExitoField = value;
-                    this.RaisePropertyChanged("MotivoNoExito");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public object Usuario {
-            get {
-                return this.UsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
-                    this.UsuarioField = value;
-                    this.RaisePropertyChanged("Usuario");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MotivoNoExitoTraerUsusario", Namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta")]
-    public enum MotivoNoExitoTraerUsusario : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorNoControlado = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        UsuarioNoExiste = 2,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioUsuario.IServicioUsuario")]
     public interface IServicioUsuario {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/TraerUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/TraerUsuarioResponse")]
-        Hosteria.Front.ServicioUsuario.RespuestaUsuarioTraer TraerUsuario(Hosteria.Front.ServicioUsuario.EntradaUsuarioTraer entradaUsuarioTraer);
+        Hosteria.Front.ServicioUsuario.Respuesta TraerUsuario(Hosteria.Front.ServicioUsuario.Entrada request);
         
+        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/TraerUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/TraerUsuarioResponse")]
-        System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.RespuestaUsuarioTraer> TraerUsuarioAsync(Hosteria.Front.ServicioUsuario.EntradaUsuarioTraer entradaUsuarioTraer);
+        System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> TraerUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Entrada", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Entrada {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string Datos;
+        
+        public Entrada() {
+        }
+        
+        public Entrada(string Datos) {
+            this.Datos = Datos;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Respuesta", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Respuesta {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool Exito;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public short MotivoNoExito;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string Datos;
+        
+        public Respuesta() {
+        }
+        
+        public Respuesta(bool Exito, short MotivoNoExito, string Datos) {
+            this.Exito = Exito;
+            this.MotivoNoExito = MotivoNoExito;
+            this.Datos = Datos;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -202,12 +90,22 @@ namespace Hosteria.Front.ServicioUsuario {
                 base(binding, remoteAddress) {
         }
         
-        public Hosteria.Front.ServicioUsuario.RespuestaUsuarioTraer TraerUsuario(Hosteria.Front.ServicioUsuario.EntradaUsuarioTraer entradaUsuarioTraer) {
-            return base.Channel.TraerUsuario(entradaUsuarioTraer);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hosteria.Front.ServicioUsuario.Respuesta Hosteria.Front.ServicioUsuario.IServicioUsuario.TraerUsuario(Hosteria.Front.ServicioUsuario.Entrada request) {
+            return base.Channel.TraerUsuario(request);
         }
         
-        public System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.RespuestaUsuarioTraer> TraerUsuarioAsync(Hosteria.Front.ServicioUsuario.EntradaUsuarioTraer entradaUsuarioTraer) {
-            return base.Channel.TraerUsuarioAsync(entradaUsuarioTraer);
+        public bool TraerUsuario(ref string Datos, out short MotivoNoExito) {
+            Hosteria.Front.ServicioUsuario.Entrada inValue = new Hosteria.Front.ServicioUsuario.Entrada();
+            inValue.Datos = Datos;
+            Hosteria.Front.ServicioUsuario.Respuesta retVal = ((Hosteria.Front.ServicioUsuario.IServicioUsuario)(this)).TraerUsuario(inValue);
+            MotivoNoExito = retVal.MotivoNoExito;
+            Datos = retVal.Datos;
+            return retVal.Exito;
+        }
+        
+        public System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> TraerUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request) {
+            return base.Channel.TraerUsuarioAsync(request);
         }
     }
 }

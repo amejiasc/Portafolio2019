@@ -51,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hosteria.Negocio.Clases\Hosteria.Negocio.Clases.csproj">
+      <Project>{c71f61cb-bccb-411d-9cee-ae5286121b9d}</Project>
+      <Name>Hosteria.Negocio.Clases</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hosteria.Tipos\Hosteria.Tipos.csproj">
       <Project>{c94d2479-c2c5-4e2a-9e44-ee7acac5aeb4}</Project>
       <Name>Hosteria.Tipos</Name>

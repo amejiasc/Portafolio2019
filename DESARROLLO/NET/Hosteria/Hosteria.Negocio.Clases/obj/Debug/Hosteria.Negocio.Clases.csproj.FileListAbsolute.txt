@@ -1,0 +1,12 @@
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Hosteria.Negocio.Clases.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Hosteria.Negocio.Clases.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Hosteria.Negocio.Tipos.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Newtonsoft.Json.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Hosteria.Negocio.Tipos.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Newtonsoft.Json.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\bin\Debug\Newtonsoft.Json.xml
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\obj\Debug\Hosteria.Negocio.Clases.csprojAssemblyReference.cache
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\obj\Debug\Hosteria.Negocio.Clases.csproj.CoreCompileInputs.cache
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\obj\Debug\Hosteria.Negocio.Clases.csproj.CopyComplete
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\obj\Debug\Hosteria.Negocio.Clases.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Clases\obj\Debug\Hosteria.Negocio.Clases.pdb
