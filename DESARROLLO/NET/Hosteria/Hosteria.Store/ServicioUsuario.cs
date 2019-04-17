@@ -25,9 +25,10 @@ namespace Hosteria.Store
             return usuario;
         }
 
-        Task<int> IServicioUsuario.InsertarAsync(IUsuario usuario)
+        public async Task<int> InsertarAsync(IUsuario usuario)
         {
-            throw new NotImplementedException();
+            return 1;
+            //throw new NotImplementedException();
         }
     }
 }

@@ -3,3 +3,4 @@ D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hos
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Debug\Hosteria.Negocio.Tipos.csproj.CoreCompileInputs.cache
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Debug\Hosteria.Negocio.Tipos.dll
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Debug\Hosteria.Negocio.Tipos.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Debug\Hosteria.Negocio.Tipos.csprojAssemblyReference.cache

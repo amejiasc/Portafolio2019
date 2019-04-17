@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="Entrada.cs" />
+    <Compile Include="ErroresTransaccionales.cs" />
     <Compile Include="Respuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

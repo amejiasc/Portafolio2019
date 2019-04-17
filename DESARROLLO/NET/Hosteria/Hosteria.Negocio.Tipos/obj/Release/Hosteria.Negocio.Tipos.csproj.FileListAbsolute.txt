@@ -1,0 +1,6 @@
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\bin\Release\Hosteria.Negocio.Tipos.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\bin\Release\Hosteria.Negocio.Tipos.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Release\Hosteria.Negocio.Tipos.csprojAssemblyReference.cache
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Release\Hosteria.Negocio.Tipos.csproj.CoreCompileInputs.cache
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Release\Hosteria.Negocio.Tipos.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio.Tipos\obj\Release\Hosteria.Negocio.Tipos.pdb

@@ -1,5 +1,6 @@
 ﻿using Hosteria.Clases.Entrada;
 using Hosteria.Clases.Respuesta;
+using Hosteria.Negocio.Clases;
 using Hosteria.Negocio.Tipos;
 using Hosteria.Tipos.Store;
 using System;
@@ -17,21 +18,93 @@ namespace Hosteria.Negocio
     public class ServicioUsuario : IServicioUsuario
     {
 
-        public async Task<Clases.Respuesta> TraerAsync(Clases.Entrada entradaDatos)
+        Hosteria.Tipos.Store.IServicioUsuario servicioUsuario;
+        Respuesta Respuesta;
+        public ServicioUsuario() {
+            servicioUsuario = new Store.ServicioUsuario();
+            Respuesta = new Respuesta();
+        }
+
+        public Task<Respuesta> ActualizarAsync(Entrada entradaDatos)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Respuesta> EliminarAsync(Entrada entradaDatos)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Inserta un Usuario al Sistema, Recibe Parametros en Datos un JSON
+        /// </summary>
+        /// <param name="entradaDatos">Datos = Json de EntradaUsuarioCrear</param>
+        /// <returns>Datos Respuesta en Json de RespuestaUsuarioCrear</returns>
+        public async Task<Respuesta> InsertarAsync(Entrada entradaDatos)
+        {
+            RespuestaUsuarioCrear respuestaUsuario = new RespuestaUsuarioCrear();
+            object ObjetoDeserializado;
+            bool SePudoDeserializar = false;
+
+            EntradaUsuarioCrear entradaUsuarioCrear = new EntradaUsuarioCrear();
+            ObjetoDeserializado = entradaUsuarioCrear.FromJson(ref SePudoDeserializar, entradaDatos.Datos);
+            if (!SePudoDeserializar)
+            {
+                return new Respuesta(ErroresTransaccionales.DatosMalSerializados);
+            }
+            entradaUsuarioCrear = (EntradaUsuarioCrear)ObjetoDeserializado;
+
+            IUsuario ExisteUsuario = await servicioUsuario.TraerAsync(0, entradaUsuarioCrear.Usuario.Rut);
+            
+
+            if (ExisteUsuario != null) {
+                respuestaUsuario.Exito = false;
+                respuestaUsuario.MotivoNoExito = MotivoNoExitoUsuarioCrear.UsuarioyaExiste;
+                respuestaUsuario.Usuario = new Hosteria.Clases.Usuario();
+                Respuesta = new Clases.Respuesta(respuestaUsuario);
+                return Respuesta;
+            }
+
+            int IdUsuario = await servicioUsuario.InsertarAsync(entradaUsuarioCrear.Usuario);
+            if (IdUsuario == 0)
+            {
+                respuestaUsuario.Exito = false;
+                respuestaUsuario.MotivoNoExito =  MotivoNoExitoUsuarioCrear.ErrorNoControlado;
+                respuestaUsuario.Usuario = new Hosteria.Clases.Usuario();
+            }
+            else
+            {
+                respuestaUsuario.Exito = true;
+                respuestaUsuario.Usuario = await servicioUsuario.TraerAsync(0, entradaUsuarioCrear.Usuario.Rut);
+            }
+
+            Respuesta = new Clases.Respuesta(respuestaUsuario);
+            return Respuesta;
+        }
+
+        /// <summary>
+        /// Trae un Usuario dal Sistema, Recibe Parametros en Datos un JSON
+        /// </summary>
+        /// <param name="entradaDatos">Datos = Json de EntradaUsuarioTraer</param>
+        /// <returns>Datos Respuesta en Json de RespuestaUsuarioTraer</returns>
+
+        public async Task<Clases.Respuesta> TraerAsync(Entrada entradaDatos)
         {
             RespuestaUsuarioTraer respuestaUsuario = new RespuestaUsuarioTraer();
-            Hosteria.Tipos.Store.IServicioUsuario servicioUsuario = new Store.ServicioUsuario();
-
             object ObjetoDeserializado;
             bool SePudoDeserializar = false; 
 
             EntradaUsuarioTraer entradaUsuarioTraer = new EntradaUsuarioTraer();
             ObjetoDeserializado = entradaUsuarioTraer.FromJson(ref SePudoDeserializar, entradaDatos.Datos);
+            if (!SePudoDeserializar)
+            {
+                return new Respuesta(ErroresTransaccionales.DatosMalSerializados);
+            }
             entradaUsuarioTraer = (EntradaUsuarioTraer)ObjetoDeserializado;
 
             IUsuario usuario = await servicioUsuario.TraerAsync(entradaUsuarioTraer.IdUsuario, entradaUsuarioTraer.RutUsuario);
 
-            Hosteria.Negocio.Clases.Respuesta Respuesta = new Clases.Respuesta();
+            Respuesta Respuesta = new Respuesta();
             if (usuario == null)
             {
                 respuestaUsuario.Exito = false;

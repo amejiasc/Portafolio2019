@@ -15,15 +15,26 @@ namespace Hosteria.Negocio
     [ServiceContract]
     public interface IServicioUsuario
     {
-        //[OperationContract(Name = "InsertarUsuario")]
-        //Task<RespuestaUsuarioCrear> InsertarAsync(IUsuario usuario);
 
-        //[OperationContract(Name = "ActualizarUsuario")]
-        //Task<RespuestaUsuarioActualizar> ActualizarAsync(IUsuario usuario);
+        /// <summary>
+        ///      Obtiene una clase generica con datos variables en JSON En el parametros Datos de la Entrada
+        /// </summary>
+        /// <param name="entradaDatos">En Datos serializar la Clase EntradaUsuarioCrear</param>
+        /// <returns>De datos DesSerializar RespuestaUsuarioCrear</returns>
+        [OperationContract(Name = "InsertarUsuario")]
+        Task<Clases.Respuesta> InsertarAsync(Clases.Entrada entradaDatos);
 
-        //[OperationContract(Name = "EliminarUsuario")]
-        //Task<RespuestaUsuarioEliminar> EliminarAsync(IUsuario usuario);
+        [OperationContract(Name = "ActualizarUsuario")]
+        Task<Clases.Respuesta> ActualizarAsync(Clases.Entrada entradaDatos);
 
+        [OperationContract(Name = "EliminarUsuario")]
+        Task<Clases.Respuesta> EliminarAsync(Clases.Entrada entradaDatos);
+
+        /// <summary>
+        ///      Obtiene una clase generica con datos variables en JSON En el parametros Datos de la Entrada
+        /// </summary>
+        /// <param name="entradaDatos">En Datos serializar la Clase EntradaUsuarioTraer</param>
+        /// <returns>De datos DesSerializar RespuestaUsuarioTraer</returns>
         [OperationContract(Name = "TraerUsuario")]
         Task<Clases.Respuesta> TraerAsync(Clases.Entrada entradaDatos);
     }

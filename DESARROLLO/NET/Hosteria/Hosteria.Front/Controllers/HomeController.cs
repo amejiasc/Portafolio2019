@@ -18,10 +18,13 @@ namespace Hosteria.Front.Controllers
 
             ServicioUsuario.ServicioUsuarioClient servicioUsuario = new ServicioUsuario.ServicioUsuarioClient();
             ServicioUsuario.Entrada entrada = new ServicioUsuario.Entrada() { Datos = Newtonsoft.Json.JsonConvert.SerializeObject(entradaUsuarioTraer) };
-            var respuesta = await servicioUsuario.TraerUsuarioAsync(entrada);
+            Respuesta Respuesta = new Respuesta();
+            var RespuestaServicio = await servicioUsuario.TraerUsuarioAsync(entrada);
+            Respuesta.Exito = RespuestaServicio.Exito;
+            Respuesta.MotivoNoExito = RespuestaServicio.MotivoNoExito;
+            Respuesta.Datos = RespuestaServicio.Datos;
 
-
-            
+            Clases.Respuesta.RespuestaUsuarioTraer respuestaUsuarioTraer = Respuesta.ObtenerDatos<Hosteria.Clases.Respuesta.RespuestaUsuarioTraer>();
 
             return View();
         }
