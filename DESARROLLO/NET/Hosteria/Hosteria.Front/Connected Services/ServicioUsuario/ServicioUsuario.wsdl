@@ -29,67 +29,31 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="Entrada">
-    <wsdl:part name="parameters" element="tns:Entrada" />
+  <wsdl:message name="IServicioUsuario_Traer_InputMessage">
+    <wsdl:part name="parameters" element="tns:Traer" />
   </wsdl:message>
-  <wsdl:message name="Respuesta">
-    <wsdl:part name="parameters" element="tns:Respuesta" />
+  <wsdl:message name="IServicioUsuario_Traer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraerResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioUsuario">
-    <wsdl:operation name="InsertarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/InsertarUsuario" name="Entrada" message="tns:Entrada" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/InsertarUsuarioResponse" name="Respuesta" message="tns:Respuesta" />
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ActualizarUsuario" name="Entrada" message="tns:Entrada" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/ActualizarUsuarioResponse" name="Respuesta" message="tns:Respuesta" />
-    </wsdl:operation>
-    <wsdl:operation name="EliminarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/EliminarUsuario" name="Entrada" message="tns:Entrada" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/EliminarUsuarioResponse" name="Respuesta" message="tns:Respuesta" />
-    </wsdl:operation>
-    <wsdl:operation name="TraerUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/TraerUsuario" name="Entrada" message="tns:Entrada" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/TraerUsuarioResponse" name="Respuesta" message="tns:Respuesta" />
+    <wsdl:operation name="Traer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/Traer" message="tns:IServicioUsuario_Traer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/TraerResponse" message="tns:IServicioUsuario_Traer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioUsuario" type="tns:IServicioUsuario">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="InsertarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/InsertarUsuario" style="document" />
-      <wsdl:input name="Entrada">
+    <wsdl:operation name="Traer">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/Traer" style="document" />
+      <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="Respuesta">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/ActualizarUsuario" style="document" />
-      <wsdl:input name="Entrada">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="Respuesta">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/EliminarUsuario" style="document" />
-      <wsdl:input name="Entrada">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="Respuesta">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="TraerUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/TraerUsuario" style="document" />
-      <wsdl:input name="Entrada">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="Respuesta">
+      <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -97,39 +61,12 @@
   <wsdl:binding name="BasicHttpsBinding_IServicioUsuario" type="tns:IServicioUsuario">
     <wsp:PolicyReference URI="#BasicHttpsBinding_IServicioUsuario_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="InsertarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/InsertarUsuario" style="document" />
-      <wsdl:input name="Entrada">
+    <wsdl:operation name="Traer">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/Traer" style="document" />
+      <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="Respuesta">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/ActualizarUsuario" style="document" />
-      <wsdl:input name="Entrada">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="Respuesta">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/EliminarUsuario" style="document" />
-      <wsdl:input name="Entrada">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="Respuesta">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="TraerUsuario">
-      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/TraerUsuario" style="document" />
-      <wsdl:input name="Entrada">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="Respuesta">
+      <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

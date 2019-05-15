@@ -93,10 +93,6 @@
       <Project>{9fb33608-eae0-4c2c-9435-9e9870647e40}</Project>
       <Name>Hosteria.Clases</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hosteria.Negocio.Clases\Hosteria.Negocio.Clases.csproj">
-      <Project>{c71f61cb-bccb-411d-9cee-ae5286121b9d}</Project>
-      <Name>Hosteria.Negocio.Clases</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Hosteria.Negocio.Tipos\Hosteria.Negocio.Tipos.csproj">
       <Project>{27878340-a643-4c23-a6c9-c9c4c12869d2}</Project>
       <Name>Hosteria.Negocio.Tipos</Name>

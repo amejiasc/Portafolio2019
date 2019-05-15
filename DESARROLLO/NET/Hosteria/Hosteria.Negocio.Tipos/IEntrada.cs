@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Hosteria.Negocio.Tipos
 {
-
     public interface IEntrada
     {
         string Datos { get; set; }

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,24 +44,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entrada\EntradaUsuarioCrear.cs" />
+    <Compile Include="Entrada\EntradaUsuarioLogin.cs" />
     <Compile Include="Entrada\EntradaUsuarioTraer.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioActualizar.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioCrear.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioEliminar.cs" />
+    <Compile Include="Respuesta\RespuestaUsuarioLogin.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioTraer.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hosteria.Negocio.Clases\Hosteria.Negocio.Clases.csproj">
-      <Project>{c71f61cb-bccb-411d-9cee-ae5286121b9d}</Project>
-      <Name>Hosteria.Negocio.Clases</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Hosteria.Tipos\Hosteria.Tipos.csproj">
       <Project>{c94d2479-c2c5-4e2a-9e44-ee7acac5aeb4}</Project>
       <Name>Hosteria.Tipos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

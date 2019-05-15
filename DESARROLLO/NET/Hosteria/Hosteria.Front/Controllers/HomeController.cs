@@ -13,18 +13,16 @@ namespace Hosteria.Front.Controllers
     {
         public async Task<ActionResult> Index()
         {
-            EntradaUsuarioTraer entradaUsuarioTraer = new EntradaUsuarioTraer()  { IdUsuario=1, RutUsuario="15538372-0" };
+            //EntradaUsuarioTraer entradaUsuarioTraer = new EntradaUsuarioTraer()  { IdUsuario=1, RutUsuario="15538372-0" };
+            //ServicioUsuario.ServicioUsuarioClient servicioUsuario = new ServicioUsuario.ServicioUsuarioClient();
+            //ServicioUsuario.Entrada entrada = new ServicioUsuario.Entrada() { Datos = Newtonsoft.Json.JsonConvert.SerializeObject(entradaUsuarioTraer) };
+            //Respuesta Respuesta = new Respuesta();
+            //var RespuestaServicio = await servicioUsuario.TraerAsync(entradaUsuarioTraer);
+            //servicioUsuario.Close();
+            //Respuesta.Exito = RespuestaServicio.Exito;
+            //Respuesta.MotivoNoExito = RespuestaServicio.MotivoNoExito;
+            //Respuesta.Datos = RespuestaServicio.Datos;
 
-
-            ServicioUsuario.ServicioUsuarioClient servicioUsuario = new ServicioUsuario.ServicioUsuarioClient();
-            ServicioUsuario.Entrada entrada = new ServicioUsuario.Entrada() { Datos = Newtonsoft.Json.JsonConvert.SerializeObject(entradaUsuarioTraer) };
-            Respuesta Respuesta = new Respuesta();
-            var RespuestaServicio = await servicioUsuario.TraerUsuarioAsync(entrada);
-            Respuesta.Exito = RespuestaServicio.Exito;
-            Respuesta.MotivoNoExito = RespuestaServicio.MotivoNoExito;
-            Respuesta.Datos = RespuestaServicio.Datos;
-
-            Clases.Respuesta.RespuestaUsuarioTraer respuestaUsuarioTraer = Respuesta.ObtenerDatos<Hosteria.Clases.Respuesta.RespuestaUsuarioTraer>();
 
             return View();
         }

@@ -16,5 +16,7 @@ namespace Hosteria.Clases
         public string Apellidos { get; set; }
         public string Email { get; set; }
         public string Clave { get; set; }
+        public int IdSucursal { get; set; }
+        public string Codigo { get; set; }
     }
 }

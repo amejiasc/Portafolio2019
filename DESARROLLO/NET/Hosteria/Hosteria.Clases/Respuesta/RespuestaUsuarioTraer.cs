@@ -2,27 +2,32 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Hosteria.Clases.Respuesta
 {
+    [DataContract]
     public class RespuestaUsuarioTraer
     {
+        [DataMember]
         public bool Exito { get; set; }
-        public MotivoNoExitoTraerUsusario MotivoNoExito { get; set; }
-        public IUsuario Usuario { get; set; }
+        [DataMember]
+        public MotivoNoExitoTraerUsuario MotivoNoExito { get; set; }
+        [DataMember]
+        public Clases.Usuario Usuario { get; set; }
 
-        public RespuestaUsuarioTraer() {
-            this.Exito = false;
-            this.Usuario = new Usuario();
-        }
     }
-
-    public enum MotivoNoExitoTraerUsusario
+    [DataContract]
+    public enum MotivoNoExitoTraerUsuario
     {
+        [EnumMember]
+        Exito = 0,
+        [EnumMember]
         ErrorNoControlado = 1,
+        [EnumMember]
         UsuarioNoExiste = 2
     }
 }

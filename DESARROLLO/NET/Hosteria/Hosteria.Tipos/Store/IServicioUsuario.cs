@@ -8,10 +8,13 @@ namespace Hosteria.Tipos.Store
 {
     public interface IServicioUsuario
     {
-        Task<int> InsertarAsync(IUsuario usuario);
-        Task<bool> ActualizarAsync(IUsuario usuario);
-        Task<bool> EliminarAsync(IUsuario usuario);
-        Task<IUsuario> TraerAsync(int idUsuario, string rut);
+        int Insertar(IUsuario usuario);
+        bool Actualizar(IUsuario usuario);
+        bool Eliminar(IUsuario usuario);
+        IUsuario Traer(int idUsuario, string rut);
+        int TraerLogin(string rut, string email, string clave);
+        void CrearLoginUsuario(string rut, Guid guid);
+        List<IUsuario> Listar(int idUsuario, string rut);
     }
 
     public interface IUsuario
@@ -22,5 +25,7 @@ namespace Hosteria.Tipos.Store
         string Apellidos { get; set; }
         string Email { get; set; }
         string Clave { get; set; }
+        int IdSucursal { get; set; }
+        string Codigo { get; set; }
     }
 }

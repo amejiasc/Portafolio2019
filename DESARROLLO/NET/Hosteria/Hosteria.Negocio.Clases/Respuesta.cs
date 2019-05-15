@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Hosteria.Negocio.Clases
 {
-    [MessageContract]
+    [DataContract]
     public class Respuesta : Tipos.IRespuesta
     {
-        [MessageBodyMember(Order = 1)]
+        [DataMember(Order = 1)]
         public bool Exito { get; set; }
-        [MessageBodyMember(Order = 2)]
+        [DataMember(Order = 2)]
         public short MotivoNoExito { get; set; }
-        [MessageBodyMember(Order = 3)]
+        [DataMember(Order = 3)]
         public string Datos { get; set; }
 
         public Respuesta()

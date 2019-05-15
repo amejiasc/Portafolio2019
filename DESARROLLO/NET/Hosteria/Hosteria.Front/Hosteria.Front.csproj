@@ -140,9 +140,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\ServicioUsuario\Hosteria.Front.ServicioUsuario.Respuesta.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\ServicioUsuario\ServicioUsuario.disco" />
     <None Include="Connected Services\ServicioUsuario\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioUsuario\configuration.svcinfo" />
@@ -164,9 +161,19 @@
     <None Include="Connected Services\ServicioUsuario\ServicioUsuario.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServicioUsuario\ServicioUsuario1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServicioUsuario\ServicioUsuario2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServicioUsuario\ServicioUsuario3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioUsuario\ServicioUsuario4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Properties\DataSources\Hosteria.Clases.Respuesta.RespuestaUsuarioTraer.datasource" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -214,9 +221,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioUsuario\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Hosteria.Clases\Hosteria.Clases.csproj">
       <Project>{9fb33608-eae0-4c2c-9435-9e9870647e40}</Project>
       <Name>Hosteria.Clases</Name>
@@ -225,6 +229,9 @@
       <Project>{d4a3c609-9b01-42d5-8086-7431eaaeebad}</Project>
       <Name>Hosteria.Front.Integracion</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServicioUsuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

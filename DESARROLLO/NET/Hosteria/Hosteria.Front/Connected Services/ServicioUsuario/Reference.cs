@@ -15,73 +15,11 @@ namespace Hosteria.Front.ServicioUsuario {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioUsuario.IServicioUsuario")]
     public interface IServicioUsuario {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/InsertarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/InsertarUsuarioResponse")]
-        Hosteria.Front.ServicioUsuario.Respuesta InsertarUsuario(Hosteria.Front.ServicioUsuario.Entrada request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/Traer", ReplyAction="http://tempuri.org/IServicioUsuario/TraerResponse")]
+        Hosteria.Clases.Respuesta.RespuestaUsuarioTraer Traer(Hosteria.Clases.Entrada.EntradaUsuarioTraer entradaDatos);
         
-        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/InsertarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/InsertarUsuarioResponse")]
-        System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> InsertarUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ActualizarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/ActualizarUsuarioResponse")]
-        Hosteria.Front.ServicioUsuario.Respuesta ActualizarUsuario(Hosteria.Front.ServicioUsuario.Entrada request);
-        
-        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ActualizarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/ActualizarUsuarioResponse")]
-        System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> ActualizarUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/EliminarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/EliminarUsuarioResponse")]
-        Hosteria.Front.ServicioUsuario.Respuesta EliminarUsuario(Hosteria.Front.ServicioUsuario.Entrada request);
-        
-        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/EliminarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/EliminarUsuarioResponse")]
-        System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> EliminarUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/TraerUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/TraerUsuarioResponse")]
-        Hosteria.Front.ServicioUsuario.Respuesta TraerUsuario(Hosteria.Front.ServicioUsuario.Entrada request);
-        
-        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/TraerUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/TraerUsuarioResponse")]
-        System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> TraerUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Entrada", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Entrada {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string Datos;
-        
-        public Entrada() {
-        }
-        
-        public Entrada(string Datos) {
-            this.Datos = Datos;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Respuesta", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Respuesta {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool Exito;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public short MotivoNoExito;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string Datos;
-        
-        public Respuesta() {
-        }
-        
-        public Respuesta(bool Exito, short MotivoNoExito, string Datos) {
-            this.Exito = Exito;
-            this.MotivoNoExito = MotivoNoExito;
-            this.Datos = Datos;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/Traer", ReplyAction="http://tempuri.org/IServicioUsuario/TraerResponse")]
+        System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaUsuarioTraer> TraerAsync(Hosteria.Clases.Entrada.EntradaUsuarioTraer entradaDatos);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,76 +49,12 @@ namespace Hosteria.Front.ServicioUsuario {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Hosteria.Front.ServicioUsuario.Respuesta Hosteria.Front.ServicioUsuario.IServicioUsuario.InsertarUsuario(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.InsertarUsuario(request);
+        public Hosteria.Clases.Respuesta.RespuestaUsuarioTraer Traer(Hosteria.Clases.Entrada.EntradaUsuarioTraer entradaDatos) {
+            return base.Channel.Traer(entradaDatos);
         }
         
-        public bool InsertarUsuario(ref string Datos, out short MotivoNoExito) {
-            Hosteria.Front.ServicioUsuario.Entrada inValue = new Hosteria.Front.ServicioUsuario.Entrada();
-            inValue.Datos = Datos;
-            Hosteria.Front.ServicioUsuario.Respuesta retVal = ((Hosteria.Front.ServicioUsuario.IServicioUsuario)(this)).InsertarUsuario(inValue);
-            MotivoNoExito = retVal.MotivoNoExito;
-            Datos = retVal.Datos;
-            return retVal.Exito;
-        }
-        
-        public System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> InsertarUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.InsertarUsuarioAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Hosteria.Front.ServicioUsuario.Respuesta Hosteria.Front.ServicioUsuario.IServicioUsuario.ActualizarUsuario(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.ActualizarUsuario(request);
-        }
-        
-        public bool ActualizarUsuario(ref string Datos, out short MotivoNoExito) {
-            Hosteria.Front.ServicioUsuario.Entrada inValue = new Hosteria.Front.ServicioUsuario.Entrada();
-            inValue.Datos = Datos;
-            Hosteria.Front.ServicioUsuario.Respuesta retVal = ((Hosteria.Front.ServicioUsuario.IServicioUsuario)(this)).ActualizarUsuario(inValue);
-            MotivoNoExito = retVal.MotivoNoExito;
-            Datos = retVal.Datos;
-            return retVal.Exito;
-        }
-        
-        public System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> ActualizarUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.ActualizarUsuarioAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Hosteria.Front.ServicioUsuario.Respuesta Hosteria.Front.ServicioUsuario.IServicioUsuario.EliminarUsuario(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.EliminarUsuario(request);
-        }
-        
-        public bool EliminarUsuario(ref string Datos, out short MotivoNoExito) {
-            Hosteria.Front.ServicioUsuario.Entrada inValue = new Hosteria.Front.ServicioUsuario.Entrada();
-            inValue.Datos = Datos;
-            Hosteria.Front.ServicioUsuario.Respuesta retVal = ((Hosteria.Front.ServicioUsuario.IServicioUsuario)(this)).EliminarUsuario(inValue);
-            MotivoNoExito = retVal.MotivoNoExito;
-            Datos = retVal.Datos;
-            return retVal.Exito;
-        }
-        
-        public System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> EliminarUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.EliminarUsuarioAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Hosteria.Front.ServicioUsuario.Respuesta Hosteria.Front.ServicioUsuario.IServicioUsuario.TraerUsuario(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.TraerUsuario(request);
-        }
-        
-        public bool TraerUsuario(ref string Datos, out short MotivoNoExito) {
-            Hosteria.Front.ServicioUsuario.Entrada inValue = new Hosteria.Front.ServicioUsuario.Entrada();
-            inValue.Datos = Datos;
-            Hosteria.Front.ServicioUsuario.Respuesta retVal = ((Hosteria.Front.ServicioUsuario.IServicioUsuario)(this)).TraerUsuario(inValue);
-            MotivoNoExito = retVal.MotivoNoExito;
-            Datos = retVal.Datos;
-            return retVal.Exito;
-        }
-        
-        public System.Threading.Tasks.Task<Hosteria.Front.ServicioUsuario.Respuesta> TraerUsuarioAsync(Hosteria.Front.ServicioUsuario.Entrada request) {
-            return base.Channel.TraerUsuarioAsync(request);
+        public System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaUsuarioTraer> TraerAsync(Hosteria.Clases.Entrada.EntradaUsuarioTraer entradaDatos) {
+            return base.Channel.TraerAsync(entradaDatos);
         }
     }
 }
