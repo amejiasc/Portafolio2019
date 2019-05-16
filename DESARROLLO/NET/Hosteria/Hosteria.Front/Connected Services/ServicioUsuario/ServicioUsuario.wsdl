@@ -40,10 +40,20 @@
   <wsdl:message name="IServicioUsuario_Traer_OutputMessage">
     <wsdl:part name="parameters" element="tns:TraerResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioUsuario_LoginUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_LoginUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioUsuario">
     <wsdl:operation name="Traer">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/Traer" message="tns:IServicioUsuario_Traer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/TraerResponse" message="tns:IServicioUsuario_Traer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/LoginUsuario" message="tns:IServicioUsuario_LoginUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/LoginUsuarioResponse" message="tns:IServicioUsuario_LoginUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioUsuario" type="tns:IServicioUsuario">
@@ -57,12 +67,30 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoginUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/LoginUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpsBinding_IServicioUsuario" type="tns:IServicioUsuario">
     <wsp:PolicyReference URI="#BasicHttpsBinding_IServicioUsuario_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Traer">
       <soap:operation soapAction="http://tempuri.org/IServicioUsuario/Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/LoginUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

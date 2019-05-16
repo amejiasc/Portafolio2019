@@ -7,4 +7,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EntradaUsuarioTraer" nillable="true" type="tns:EntradaUsuarioTraer" />
+  <xs:complexType name="EntradaUsuarioLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rut" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntradaUsuarioLogin" nillable="true" type="tns:EntradaUsuarioLogin" />
 </xs:schema>

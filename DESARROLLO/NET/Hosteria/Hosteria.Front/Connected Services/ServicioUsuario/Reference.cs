@@ -20,6 +20,12 @@ namespace Hosteria.Front.ServicioUsuario {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/Traer", ReplyAction="http://tempuri.org/IServicioUsuario/TraerResponse")]
         System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaUsuarioTraer> TraerAsync(Hosteria.Clases.Entrada.EntradaUsuarioTraer entradaDatos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/LoginUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/LoginUsuarioResponse")]
+        Hosteria.Clases.Respuesta.RespuestaUsuarioLogin LoginUsuario(Hosteria.Clases.Entrada.EntradaUsuarioLogin entradaDatos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/LoginUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/LoginUsuarioResponse")]
+        System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaUsuarioLogin> LoginUsuarioAsync(Hosteria.Clases.Entrada.EntradaUsuarioLogin entradaDatos);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace Hosteria.Front.ServicioUsuario {
         
         public System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaUsuarioTraer> TraerAsync(Hosteria.Clases.Entrada.EntradaUsuarioTraer entradaDatos) {
             return base.Channel.TraerAsync(entradaDatos);
+        }
+        
+        public Hosteria.Clases.Respuesta.RespuestaUsuarioLogin LoginUsuario(Hosteria.Clases.Entrada.EntradaUsuarioLogin entradaDatos) {
+            return base.Channel.LoginUsuario(entradaDatos);
+        }
+        
+        public System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaUsuarioLogin> LoginUsuarioAsync(Hosteria.Clases.Entrada.EntradaUsuarioLogin entradaDatos) {
+            return base.Channel.LoginUsuarioAsync(entradaDatos);
         }
     }
 }
