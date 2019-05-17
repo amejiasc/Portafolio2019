@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comuna.cs" />
     <Compile Include="Entrada\EntradaUsuarioCrear.cs" />
     <Compile Include="Entrada\EntradaUsuarioLogin.cs" />
     <Compile Include="Entrada\EntradaUsuarioTraer.cs" />
+    <Compile Include="Region.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioActualizar.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioCrear.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioEliminar.cs" />

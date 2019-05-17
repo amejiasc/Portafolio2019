@@ -1,0 +1,9 @@
+﻿@model List<Hosteria.Clases.Comuna>
+
+<option value="">Seleccione</option>
+@foreach (Hosteria.Clases.Comuna item in Model)
+{
+    <option value="@item.IdComuna">
+        @item.Nombre
+    </option>
+}

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ServicioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hosteria.Clases\Hosteria.Clases.csproj">

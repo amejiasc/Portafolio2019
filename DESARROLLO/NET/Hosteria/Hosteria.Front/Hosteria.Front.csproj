@@ -128,13 +128,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UtilConfig.cs" />
     <Compile Include="Connected Services\ServicioUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServicioUtils\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SistemaController.cs" />
+    <Compile Include="Controllers\UtilsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,6 +152,13 @@
     <None Include="Connected Services\ServicioUsuario\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioUsuario\configuration.svcinfo" />
     <None Include="Connected Services\ServicioUsuario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServicioUtils\ServicioUtils.disco" />
+    <None Include="Connected Services\ServicioUtils\configuration91.svcinfo" />
+    <None Include="Connected Services\ServicioUtils\configuration.svcinfo" />
+    <None Include="Connected Services\ServicioUtils\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -478,6 +492,18 @@
     <Content Include="Scripts\assets\js\plugins\tables\datatables\.DS_Store" />
     <Content Include="Scripts\assets\js\plugins\ui\.DS_Store" />
     <Content Include="images\assets\images\.DS_Store" />
+    <None Include="Connected Services\ServicioUtils\ServicioUtils.wsdl" />
+    <None Include="Connected Services\ServicioUtils\ServicioUtils.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioUtils\ServicioUtils1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioUtils\ServicioUtils2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Properties\DataSources\Hosteria.Clases.Comuna.datasource" />
+    <Content Include="Properties\DataSources\Hosteria.Clases.Region.datasource" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\google-map.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -523,6 +549,7 @@
     <Content Include="Views\Sistema\Registro.cshtml" />
     <Content Include="Views\Shared\_LayoutInterno.cshtml" />
     <Content Include="Views\Sistema\Index.cshtml" />
+    <Content Include="Views\Utils\Comuna.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -556,6 +583,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServicioUsuario\" />
+    <WCFMetadataStorage Include="Connected Services\ServicioUtils\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

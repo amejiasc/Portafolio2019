@@ -23,7 +23,6 @@ namespace Hosteria.Front.Controllers
             //Respuesta.MotivoNoExito = RespuestaServicio.MotivoNoExito;
             //Respuesta.Datos = RespuestaServicio.Datos;
 
-
             return View();
         }
 

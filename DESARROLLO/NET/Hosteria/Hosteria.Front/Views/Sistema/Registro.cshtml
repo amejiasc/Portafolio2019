@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Registro";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
@@ -40,8 +39,12 @@
 
                         <div class="form-group-2 has-feedback has-feedback-left">
                             <label>Región</label>
-                            <select class="bootstrap-select" data-width="100%">
-                                <option value="00">Seleccione</option>
+                            <select class="bootstrap-select" data-width="100%" name="region" id="region">
+                                <option value="">Seleccione</option>
+                                @foreach (Hosteria.Clases.Region region in UtilConfig.Regiones())
+                                {
+                                    <option value="@region.IdRegion">@region.Nombre</option>
+                                }
                             </select>
                         </div>
                     </div>
@@ -49,8 +52,8 @@
 
                         <div class="form-group-2 has-feedback has-feedback-left">
                             <label>Comuna</label>
-                            <select class="bootstrap-select" data-width="100%">
-                                <option value="00">Seleccione</option>
+                            <select class="bootstrap-select" data-width="100%" name="comuna" id="comuna" required>
+                                @Html.Partial("../Utils/Comuna", new List<Hosteria.Clases.Comuna>())
                             </select>
                         </div>
                     </div>
@@ -86,3 +89,35 @@
     <!-- /main content -->
 </div>
 <!-- /page content -->
+@section Scripts {
+
+    <script type="text/javascript">
+    (function ($) {
+        $(function () {
+            //$("#locales").val(localSel);
+            $("#region").change(function () {
+                $.ajax(
+                {
+                    url: '@Url.Content("~/Utils/Comuna")?_region=' + $(this).val(),
+                    type: 'GET',
+                    data: "",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        alert(data);
+                        $("#comuna").html(data);
+                        if ($("#comuna").val() == null)
+                        {
+                            $("#comuna").val("");
+                        }
+                        $('.bootstrap-select').selectpicker('refresh');
+                    },
+                    error: function (s, e) {
+                        alert('Error ' +  s.source);
+                    }
+                });
+            });            
+        });
+    })(jQuery);
+    </script>
+}
+
