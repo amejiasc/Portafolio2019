@@ -1,14 +1,7 @@
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Clases.dll
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Clases.pdb
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Negocio.Clases.dll
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Tipos.dll
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Negocio.Tipos.dll
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Newtonsoft.Json.dll
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Negocio.Clases.pdb
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Tipos.pdb
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Hosteria.Negocio.Tipos.pdb
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Newtonsoft.Json.pdb
-D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\bin\Release\Newtonsoft.Json.xml
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\obj\Release\Hosteria.Clases.csprojAssemblyReference.cache
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\obj\Release\Hosteria.Clases.csproj.CoreCompileInputs.cache
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Clases\obj\Release\Hosteria.Clases.csproj.CopyComplete

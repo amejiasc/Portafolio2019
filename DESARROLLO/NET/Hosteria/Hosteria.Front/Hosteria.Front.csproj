@@ -504,6 +504,7 @@
     </None>
     <Content Include="Properties\DataSources\Hosteria.Clases.Comuna.datasource" />
     <Content Include="Properties\DataSources\Hosteria.Clases.Region.datasource" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\google-map.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
