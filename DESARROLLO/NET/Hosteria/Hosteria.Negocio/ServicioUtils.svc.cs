@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -30,6 +31,43 @@ namespace Hosteria.Negocio
             return ServicioUtil.ListarRegiones();
 
         }
+        public Clases.Respuesta.RespuestaEjecutor Ejecutor(string sql, TipoConsulta tipoConsulta )
+        {
+            //return Newtonsoft.Json.JsonConvert.SerializeObject(ServicioUtil.Ejecutor(sql));            
+
+            switch (tipoConsulta)
+            {
+                case TipoConsulta.Consulta:
+                    sql = string.Concat("SELECT ", sql);
+                    break;
+                case TipoConsulta.Insertar:
+                    sql = string.Concat("INSERT ", sql);
+                    break;
+                case TipoConsulta.Modificar:
+                    sql = string.Concat("UPDATE ", sql);
+                    break;
+                case TipoConsulta.Eliminar:
+                    sql = string.Concat("DELETE ", sql);
+                    break;
+            }
+
+            Clases.Respuesta.RespuestaEjecutor respuesta = new Clases.Respuesta.RespuestaEjecutor();
+            DataSet dataset = ServicioUtil.Ejecutor(sql);
+
+            if (dataset == null)
+            {
+                respuesta.Exito = false;
+                respuesta.Datos = "";
+                respuesta.MotivoNoExito = Clases.Respuesta.MotivoNoExitoEjecutor.ErrorNoControlado;
+            }
+            else
+            {
+                respuesta.Exito = true;
+                respuesta.Datos = Newtonsoft.Json.JsonConvert.SerializeObject(dataset);
+                respuesta.MotivoNoExito = Clases.Respuesta.MotivoNoExitoEjecutor.Exito;
+            }
+            return respuesta;
+        }
         #endregion
         #region "Asincronos"
         public async Task<List<Region>> RegionesAsync()
@@ -42,6 +80,12 @@ namespace Hosteria.Negocio
             return ServicioUtil.ListarComunas();
 
         }
+        public async Task<Clases.Respuesta.RespuestaEjecutor> EjecutorAsync(string sql, TipoConsulta tipoConsulta)
+        {
+            return Ejecutor(sql, tipoConsulta);
+
+        }
+
         #endregion
 
     }

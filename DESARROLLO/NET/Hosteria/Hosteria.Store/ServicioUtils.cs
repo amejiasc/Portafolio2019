@@ -3,6 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +105,36 @@ namespace Hosteria.Store
             finally
             {
                 conn.Close();
+            }
+        }
+
+        public DataSet Ejecutor(string sql) {
+
+            OracleConnection conn = new OracleConnection(ConnString);
+            try
+            {
+                //Instantiate OracleDataAdapter to create DataSet
+                OracleDataAdapter productsAdapter = new OracleDataAdapter();
+
+                //Fetch Product Details
+                productsAdapter.SelectCommand = new OracleCommand(sql, conn);
+
+                //Instantiate DataSet object
+                DataSet dataset = new DataSet("Result");
+
+                //Fill the DataSet with data from 'Products' database table
+                productsAdapter.Fill(dataset, "Result");
+
+                return dataset;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Open();
             }
         }
 

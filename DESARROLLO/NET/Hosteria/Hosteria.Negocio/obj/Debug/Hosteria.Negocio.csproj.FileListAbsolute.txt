@@ -44,3 +44,4 @@ D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hos
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio\obj\Debug\Hosteria.Negocio.csproj.CopyComplete
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio\obj\Debug\Hosteria.Negocio.dll
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio\obj\Debug\Hosteria.Negocio.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Negocio\bin\Newtonsoft.Json.dll

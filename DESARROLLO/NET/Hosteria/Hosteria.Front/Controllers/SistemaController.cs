@@ -21,6 +21,11 @@ namespace Hosteria.Front.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Registro(Models.Cliente cliente)
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();

@@ -44,15 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comuna.cs" />
+    <Compile Include="Entrada\EntradaReservaListar.cs" />
     <Compile Include="Entrada\EntradaUsuarioCrear.cs" />
     <Compile Include="Entrada\EntradaUsuarioLogin.cs" />
     <Compile Include="Entrada\EntradaUsuarioTraer.cs" />
     <Compile Include="Region.cs" />
+    <Compile Include="Reserva.cs" />
+    <Compile Include="Respuesta\RespuestaEjecutor.cs" />
+    <Compile Include="Respuesta\RespuestaReservaHabitaciones.cs" />
+    <Compile Include="Respuesta\RespuestaReservaListar.cs" />
+    <Compile Include="Respuesta\RespuestaReservaPasajeros.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioActualizar.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioCrear.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioEliminar.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioLogin.cs" />
     <Compile Include="Respuesta\RespuestaUsuarioTraer.cs" />
+    <Compile Include="Trabajador.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
