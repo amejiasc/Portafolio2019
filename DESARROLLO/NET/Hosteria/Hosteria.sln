@@ -35,6 +35,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosteria.Front.Negocio", "H
 		{20921833-60CA-4330-A73D-49BFAFB145A2} = {20921833-60CA-4330-A73D-49BFAFB145A2}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ANEXOS", "ANEXOS", "{F70E36F5-2EFE-49A2-8D9A-28ED226708FF}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\..\CONVERSION.xlsx = ..\..\..\..\..\..\..\CONVERSION.xlsx
+		C:\Users\alexis.mejias\Documents\FormatoCargaHostal.xlsx = C:\Users\alexis.mejias\Documents\FormatoCargaHostal.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

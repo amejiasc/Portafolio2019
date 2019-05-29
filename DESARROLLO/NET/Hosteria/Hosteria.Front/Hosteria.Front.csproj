@@ -140,6 +140,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cotizacion.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -477,6 +478,13 @@
     </None>
     <Content Include="Properties\DataSources\Hosteria.Clases.Comuna.datasource" />
     <Content Include="Properties\DataSources\Hosteria.Clases.Region.datasource" />
+    <None Include="Connected Services\ServicioUtils\ServicioUtils3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioUtils\ServicioUtils31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Properties\DataSources\Hosteria.Clases.Respuesta.RespuestaEjecutor.datasource" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\google-map.js" />

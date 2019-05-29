@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada" />
-  <xs:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" />
+  <xs:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" />
+  <xs:element name="CrearReserva">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada" minOccurs="0" name="entradaReservaCrear" nillable="true" type="q1:EntradaReservaCrear" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearReservaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="CrearReservaResult" nillable="true" type="q2:RespuestaReservaCrear" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarReserva">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada" minOccurs="0" name="entradaListaReservas" nillable="true" type="q1:EntradaReservaListar" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada" minOccurs="0" name="entradaListaReservas" nillable="true" type="q3:EntradaReservaListar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarReservaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="ListarReservaResult" nillable="true" type="q2:RespuestaReservaListar" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="ListarReservaResult" nillable="true" type="q4:RespuestaReservaListar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -26,7 +40,7 @@
   <xs:element name="ListarPasajerosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="ListarPasajerosResult" nillable="true" type="q3:RespuestaReservaPasajeros" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="ListarPasajerosResult" nillable="true" type="q5:RespuestaReservaPasajeros" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -40,7 +54,7 @@
   <xs:element name="ListarHabitacionesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="ListarHabitacionesResult" nillable="true" type="q4:RespuestaReservaHabitaciones" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" minOccurs="0" name="ListarHabitacionesResult" nillable="true" type="q6:RespuestaReservaHabitaciones" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

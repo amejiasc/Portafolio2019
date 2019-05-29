@@ -15,6 +15,12 @@ namespace Hosteria.Front.Negocio.ServicioReserva {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioReserva.IServicioReserva")]
     public interface IServicioReserva {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioReserva/CrearReserva", ReplyAction="http://tempuri.org/IServicioReserva/CrearReservaResponse")]
+        Hosteria.Clases.Respuesta.RespuestaReservaCrear CrearReserva(Hosteria.Clases.Entrada.EntradaReservaCrear entradaReservaCrear);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioReserva/CrearReserva", ReplyAction="http://tempuri.org/IServicioReserva/CrearReservaResponse")]
+        System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaReservaCrear> CrearReservaAsync(Hosteria.Clases.Entrada.EntradaReservaCrear entradaReservaCrear);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioReserva/ListarReserva", ReplyAction="http://tempuri.org/IServicioReserva/ListarReservaResponse")]
         Hosteria.Clases.Respuesta.RespuestaReservaListar ListarReserva(Hosteria.Clases.Entrada.EntradaReservaListar entradaListaReservas);
         
@@ -59,6 +65,14 @@ namespace Hosteria.Front.Negocio.ServicioReserva {
         
         public ServicioReservaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public Hosteria.Clases.Respuesta.RespuestaReservaCrear CrearReserva(Hosteria.Clases.Entrada.EntradaReservaCrear entradaReservaCrear) {
+            return base.Channel.CrearReserva(entradaReservaCrear);
+        }
+        
+        public System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaReservaCrear> CrearReservaAsync(Hosteria.Clases.Entrada.EntradaReservaCrear entradaReservaCrear) {
+            return base.Channel.CrearReservaAsync(entradaReservaCrear);
         }
         
         public Hosteria.Clases.Respuesta.RespuestaReservaListar ListarReserva(Hosteria.Clases.Entrada.EntradaReservaListar entradaListaReservas) {

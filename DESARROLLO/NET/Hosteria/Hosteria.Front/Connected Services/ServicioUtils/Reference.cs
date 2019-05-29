@@ -9,7 +9,25 @@
 //------------------------------------------------------------------------------
 
 namespace Hosteria.Front.ServicioUtils {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoConsulta", Namespace="http://schemas.datacontract.org/2004/07/Hosteria.Negocio")]
+    public enum TipoConsulta : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Consulta = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Insertar = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Modificar = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Eliminar = 4,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioUtils.IServicioUtils")]
@@ -26,6 +44,12 @@ namespace Hosteria.Front.ServicioUtils {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUtils/Comunas", ReplyAction="http://tempuri.org/IServicioUtils/ComunasResponse")]
         System.Threading.Tasks.Task<Hosteria.Clases.Comuna[]> ComunasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUtils/Ejecutor", ReplyAction="http://tempuri.org/IServicioUtils/EjecutorResponse")]
+        Hosteria.Clases.Respuesta.RespuestaEjecutor Ejecutor(string consulta, Hosteria.Front.ServicioUtils.TipoConsulta tipoConsulta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUtils/Ejecutor", ReplyAction="http://tempuri.org/IServicioUtils/EjecutorResponse")]
+        System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaEjecutor> EjecutorAsync(string consulta, Hosteria.Front.ServicioUtils.TipoConsulta tipoConsulta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +93,14 @@ namespace Hosteria.Front.ServicioUtils {
         
         public System.Threading.Tasks.Task<Hosteria.Clases.Comuna[]> ComunasAsync() {
             return base.Channel.ComunasAsync();
+        }
+        
+        public Hosteria.Clases.Respuesta.RespuestaEjecutor Ejecutor(string consulta, Hosteria.Front.ServicioUtils.TipoConsulta tipoConsulta) {
+            return base.Channel.Ejecutor(consulta, tipoConsulta);
+        }
+        
+        public System.Threading.Tasks.Task<Hosteria.Clases.Respuesta.RespuestaEjecutor> EjecutorAsync(string consulta, Hosteria.Front.ServicioUtils.TipoConsulta tipoConsulta) {
+            return base.Channel.EjecutorAsync(consulta, tipoConsulta);
         }
     }
 }

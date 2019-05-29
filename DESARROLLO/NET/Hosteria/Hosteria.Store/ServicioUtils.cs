@@ -115,30 +115,34 @@ namespace Hosteria.Store
             {
                 //Instantiate OracleDataAdapter to create DataSet
                 OracleDataAdapter productsAdapter = new OracleDataAdapter();
-
+                //Instantiate DataSet object
+                DataSet dataset = new DataSet("Result");
+                int rows = 0;
+                conn.Open();
                 //Fetch Product Details
                 switch (tipoConsulta)
                 {
                     case 1:
                         productsAdapter.SelectCommand = new OracleCommand(sql, conn);
+                        //Fill the DataSet with data from 'Products' database table
+                        productsAdapter.Fill(dataset, "Result");
                         break;
                     case 2:
-                        productsAdapter.InsertCommand = new OracleCommand(sql, conn);
-                        break;
                     case 3:
-                        productsAdapter.UpdateCommand = new OracleCommand(sql, conn);
-                        break;
                     case 4:
-                        productsAdapter.DeleteCommand = new OracleCommand(sql, conn);
+                        OracleCommand cmd = new OracleCommand(sql, conn);
+                        //Fill the DataSet with data from 'Products' database table
+                        rows = cmd.ExecuteNonQuery();
+                        dataset.Tables.Add(new DataTable("Table"));
+                        dataset.Tables[0].Columns.Add("Filas", typeof(int));
+                        dataset.Tables[0].Rows.Add(rows);
                         break;
                     default:
                         return null;
                 }
-                //Instantiate DataSet object
-                DataSet dataset = new DataSet("Result");
+                
 
-                //Fill the DataSet with data from 'Products' database table
-                productsAdapter.Fill(dataset, "Result");
+                
 
                 return dataset;
 
@@ -149,7 +153,7 @@ namespace Hosteria.Store
             }
             finally
             {
-                conn.Open();
+                conn.Close();
             }
         }
 

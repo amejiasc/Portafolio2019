@@ -26,6 +26,7 @@ namespace Hosteria.Clases
         public string FechaCheckin { get; set; }
         public string FechaDesde { get; set; }
         public string FechaHasta { get; set; }
+        public int Pension { get; set; }
     }
     public class Habitacion
     {

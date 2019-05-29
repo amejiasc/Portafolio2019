@@ -1,71 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Hosteria.Clases" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfReserva">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases" />
+  <xs:complexType name="RespuestaReservaCrear">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reserva" nillable="true" type="tns:Reserva" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoReservaCrear" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfReserva" nillable="true" type="tns:ArrayOfReserva" />
-  <xs:complexType name="Reserva">
+  <xs:element name="RespuestaReservaCrear" nillable="true" type="tns:RespuestaReservaCrear" />
+  <xs:simpleType name="MotivoNoReservaCrear">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="NoSeCreoReserva">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ErrorNoControlado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoReservaCrear" nillable="true" type="tns:MotivoNoReservaCrear" />
+  <xs:complexType name="RespuestaReservaListar">
     <xs:sequence>
-      <xs:element minOccurs="0" name="EstadoReserva" type="xs:int" />
-      <xs:element minOccurs="0" name="FechaDesde" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaHasta" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaReserva" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdReserva" type="xs:int" />
-      <xs:element minOccurs="0" name="IdSucursal" type="xs:int" />
-      <xs:element minOccurs="0" name="Monto" type="xs:int" />
-      <xs:element minOccurs="0" name="NombreCliente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreSucursal" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RutCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Datos" nillable="true" type="q1:ArrayOfReserva" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoReservaListar" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Reserva" nillable="true" type="tns:Reserva" />
-  <xs:complexType name="ArrayOfPasajero">
+  <xs:element name="RespuestaReservaListar" nillable="true" type="tns:RespuestaReservaListar" />
+  <xs:simpleType name="MotivoNoReservaListar">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="SinDatos" />
+      <xs:enumeration value="ErrorNoControlado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoReservaListar" nillable="true" type="tns:MotivoNoReservaListar" />
+  <xs:complexType name="RespuestaReservaPasajeros">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pasajero" nillable="true" type="tns:Pasajero" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Datos" nillable="true" type="q2:ArrayOfPasajero" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoReservaPasajeros" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfPasajero" nillable="true" type="tns:ArrayOfPasajero" />
-  <xs:complexType name="Pasajero">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Trabajador">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FechaCheckin" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FechaDesde" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FechaHasta" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Habitacion" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Pasajero" nillable="true" type="tns:Pasajero" />
-  <xs:complexType name="Trabajador">
+  <xs:element name="RespuestaReservaPasajeros" nillable="true" type="tns:RespuestaReservaPasajeros" />
+  <xs:simpleType name="MotivoNoReservaPasajeros">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="SinDatos" />
+      <xs:enumeration value="ErrorNoControlado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoReservaPasajeros" nillable="true" type="tns:MotivoNoReservaPasajeros" />
+  <xs:complexType name="RespuestaReservaHabitaciones">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Celular" type="xs:int" />
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RutCliente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RutTrabajador" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Datos" nillable="true" type="q3:ArrayOfHabitacion" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoReservaHabitacion" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Trabajador" nillable="true" type="tns:Trabajador" />
-  <xs:complexType name="ArrayOfHabitacion">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Habitacion" nillable="true" type="tns:Habitacion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfHabitacion" nillable="true" type="tns:ArrayOfHabitacion" />
-  <xs:complexType name="Habitacion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Estado" type="xs:int" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NroHabitacion" type="xs:int" />
-      <xs:element minOccurs="0" name="Precio" type="xs:int" />
-      <xs:element minOccurs="0" name="Tipo" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Habitacion" nillable="true" type="tns:Habitacion" />
+  <xs:element name="RespuestaReservaHabitaciones" nillable="true" type="tns:RespuestaReservaHabitaciones" />
+  <xs:simpleType name="MotivoNoReservaHabitacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="SinDatos" />
+      <xs:enumeration value="ErrorNoControlado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoReservaHabitacion" nillable="true" type="tns:MotivoNoReservaHabitacion" />
 </xs:schema>

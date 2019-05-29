@@ -40,8 +40,10 @@ namespace Hosteria.Store
                 cmd.Parameters.Add(new OracleParameter("p_CLAVE", OracleDbType.Varchar2, empresa.Clave.ToString(), System.Data.ParameterDirection.Input));
                 cmd.Parameters.Add(new OracleParameter("p_GIRO", OracleDbType.Varchar2, empresa.Giro.ToString(), System.Data.ParameterDirection.Input)); 
                 cmd.Parameters.Add(new OracleParameter("p_IdCliente", OracleDbType.Int32, System.Data.ParameterDirection.Output));
-                cmd.Parameters.Add(new OracleParameter("p_estado", OracleDbType.Int32, System.Data.ParameterDirection.Output));
                 OracleParameter oraP = new OracleParameter("p_glosa", OracleDbType.Varchar2, 2000);
+                oraP.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(oraP);
+                cmd.Parameters.Add(new OracleParameter("p_estado", OracleDbType.Int32, System.Data.ParameterDirection.InputOutput));
 
                 cmd.ExecuteNonQuery();
 

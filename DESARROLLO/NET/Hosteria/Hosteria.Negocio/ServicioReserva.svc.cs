@@ -16,9 +16,34 @@ namespace Hosteria.Negocio
     public class ServicioReserva : IServicioReserva
     {
         Store.ServicioReserva servicioReserva;
+        Store.ServicioUtils servicioUtils;
+        Store.ServicioTrabajador servicioTrabajador;
         public ServicioReserva()
         {
             servicioReserva = new Store.ServicioReserva();
+            servicioUtils = new Store.ServicioUtils();
+            servicioTrabajador = new Store.ServicioTrabajador();
+        }
+
+        public RespuestaReservaCrear CrearReserva(EntradaReservaCrear entradaReservaCrear)
+        {                                              
+            int IdReserva = servicioReserva.Crear(entradaReservaCrear.IdSucursal, entradaReservaCrear.IdCliente);
+            if (IdReserva == 0)
+            {
+                return new RespuestaReservaCrear() { Exito = false, MotivoNoExito = MotivoNoReservaCrear.NoSeCreoReserva };
+            }
+            var ListaTrabajadores = servicioTrabajador.Listar(entradaReservaCrear.IdCliente);
+            foreach (var item in entradaReservaCrear.Pasajeros)
+            {
+                if (!ListaTrabajadores.Exists(x => x.RutTrabajador.Equals(item.RutTrabajador)))
+                {
+                    servicioTrabajador.Crear(item, entradaReservaCrear.IdCliente);
+                }
+                servicioReserva.CrearDetalle(item, IdReserva);
+            }
+
+            return new RespuestaReservaCrear() { Exito = true, MotivoNoExito = MotivoNoReservaCrear.Exito };
+
         }
 
         public RespuestaReservaPasajeros ListarPasajeros(int idReserva)
@@ -109,7 +134,6 @@ namespace Hosteria.Negocio
 
         }
 
-
-
+       
     }
 }

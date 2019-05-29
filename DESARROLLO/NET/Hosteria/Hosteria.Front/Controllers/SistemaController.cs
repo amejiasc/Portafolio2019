@@ -13,11 +13,38 @@ namespace Hosteria.Front.Controllers
         // GET: Sistema
 
         [HttpPost]
+        public ActionResult SubirCotizacion(Models.Cotizacion cotizacion, int idCliente, int idSucursal) {
+
+            ViewBag.Modifica = false;
+            ViewBag.Sube = true;
+            ViewBag.Error = false;
+            ViewBag.Mensaje = "Se ha enviado correctamente la cotización";
+            if (!cotizacion.Archivo.FileName.Contains(".xls"))
+            {
+                ViewBag.Error = true;
+                ViewBag.Sube = true;
+                ViewBag.Mensaje = "El Archivo no es válido";
+            }
+            else{
+                Negocio.Cotizacion cotizacionUp = new Negocio.Cotizacion();
+                var Respuesta = cotizacionUp.Cargar(new Cotizacion() { IdCliente= idCliente, IdSucursal= idSucursal }, cotizacion.Archivo);
+                if (!Respuesta.Exito) {
+                    ViewBag.Error = true;
+                    ViewBag.Sube = true;
+                    ViewBag.Mensaje = Respuesta.Mensaje;
+                }
+            }
+
+            return View("Index");
+        }
+        [HttpPost]
         public ActionResult Modificar(Models.Cliente cliente)
         {
             ViewBag.Modifica = true;
+            ViewBag.Sube = false;
+            ViewBag.Error = false;
             ViewBag.Mensaje = "Se ha modificado correctamente su información";
-            return View("Index", cliente);
+            return View("Index");
         }
 
         [HttpPost]
@@ -46,6 +73,7 @@ namespace Hosteria.Front.Controllers
         [AllowAnonymous]
         public ActionResult CerrarSesion()
         {
+            Negocio.Helper.Autenticacion.DestruirSesionUsuario();
             ViewBag.Error = true;
             ViewBag.Mensaje = "Se cerró su sesión";
             return View("Login");
@@ -108,6 +136,8 @@ namespace Hosteria.Front.Controllers
         public ActionResult Index()
         {
             ViewBag.Modifica = false;
+            ViewBag.Sube = false;
+            ViewBag.Error = false;
             ViewBag.Mensaje = "";
             return View();
         }

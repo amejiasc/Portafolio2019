@@ -14,6 +14,8 @@ namespace Hosteria.Negocio
     public interface IServicioReserva
     {
         [OperationContract]
+        RespuestaReservaCrear CrearReserva(EntradaReservaCrear entradaReservaCrear);
+        [OperationContract]
         RespuestaReservaListar ListarReserva(EntradaReservaListar entradaListaReservas);
         [OperationContract]
         RespuestaReservaPasajeros ListarPasajeros(int idReserva);

@@ -51,5 +51,39 @@ namespace Hosteria.Front
 
 
         }
+
+        public static Clases.Sucursal Sucursales()
+        {
+
+            Clases.Sucursal Sucursales = new Clases.Sucursal();
+            if (HttpRuntime.Cache.Get("sucursales") == null)
+            {
+                Clases.Respuesta.RespuestaEjecutor respuestaEjecutor;
+                using (ServicioUtils.ServicioUtilsClient servicioUtilsClient = new ServicioUtils.ServicioUtilsClient())
+                {
+
+                    respuestaEjecutor = servicioUtilsClient.Ejecutor("CAST(IDSUCURSAL AS NUMBER(10,0)) IDSUCURSAL, NOMBRESUCURSAL FROM SUCURSAL ORDER BY NOMBRESUCURSAL", ServicioUtils.TipoConsulta.Consulta);
+                    servicioUtilsClient.Close();
+                }
+
+                Sucursales = Newtonsoft.Json.JsonConvert.DeserializeObject<Clases.Sucursal>(respuestaEjecutor.Datos);
+                if (Sucursales != null)
+                {
+                    HttpRuntime.Cache.Insert("sucursales", Sucursales, null, DateTime.Now.AddMinutes(60), Cache.NoSlidingExpiration);
+                }
+                else {
+                    Sucursales = new Clases.Sucursal();
+                }
+            }
+            else
+            {
+                Sucursales = (Clases.Sucursal)HttpRuntime.Cache.Get("sucursales");
+            }
+
+            return Sucursales;
+
+
+        }
+
     }
 }

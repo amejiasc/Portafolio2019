@@ -16,6 +16,84 @@ namespace Hosteria.Store
         {
             ConnString = ConfigurationManager.ConnectionStrings["OracleDb"].ConnectionString;
         }
+
+        public int Crear(int idSucursal, int idCliente)
+        {
+            OracleConnection conn = new OracleConnection(ConnString);
+            try
+            {
+                conn.Open();
+
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PKG_RESERVA.SP_CREAR";
+
+                cmd.Parameters.Add(new OracleParameter("p_IdSucursal", OracleDbType.Int32, idSucursal, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_IdCliente", OracleDbType.Int32, idCliente, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_IdReserva", OracleDbType.Int32, System.Data.ParameterDirection.Output));
+                OracleParameter oraP = new OracleParameter("p_glosa", OracleDbType.Varchar2, 2000);
+                oraP.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(oraP);
+                cmd.Parameters.Add(new OracleParameter("p_estado", OracleDbType.Int32, System.Data.ParameterDirection.InputOutput));
+
+                cmd.ExecuteNonQuery();
+
+                return int.Parse(cmd.Parameters["p_IdReserva"].Value.ToString());
+
+
+
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+        public int CrearDetalle(Clases.Pasajero pasajero, int idReserva)
+        {
+            OracleConnection conn = new OracleConnection(ConnString);
+            try
+            {
+                conn.Open();
+
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PKG_RESERVA.SP_CREARDETALLE";
+
+                cmd.Parameters.Add(new OracleParameter("p_IDRESERVA", OracleDbType.Int32,idReserva, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_ESTADODETALLE", OracleDbType.Varchar2, "PENDIENTE", System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_RUTTRABAJADOR", OracleDbType.Varchar2, pasajero.RutTrabajador, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_FECHADESDE", OracleDbType.Varchar2, pasajero.FechaDesde, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_FECHAHASTA", OracleDbType.Varchar2, pasajero.FechaHasta, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_IDPENSION", OracleDbType.Int32, pasajero.Pension, System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_ID", OracleDbType.Int32, System.Data.ParameterDirection.Output));
+                OracleParameter oraP = new OracleParameter("p_glosa", OracleDbType.Varchar2, 2000);
+                oraP.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(oraP);
+                cmd.Parameters.Add(new OracleParameter("p_estado", OracleDbType.Int32, System.Data.ParameterDirection.InputOutput));
+
+                cmd.ExecuteNonQuery();
+
+                return int.Parse(cmd.Parameters["p_ID"].Value.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
         public List<Reserva> ListarReserva(int idReserva, string rutEmpresa, 
                                            string rutPasajero, string nombreEmpresa, 
                                            DateTime fechaDesde, DateTime fechaHasta, 

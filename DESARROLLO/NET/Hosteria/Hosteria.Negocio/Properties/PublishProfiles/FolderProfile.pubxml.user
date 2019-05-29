@@ -22,10 +22,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/17/2019 15:32:24</publishTime>
     </File>
     <File Include="bin/Hosteria.Negocio.dll">
-      <publishTime>05/29/2019 00:03:04</publishTime>
+      <publishTime>05/29/2019 01:28:43</publishTime>
     </File>
     <File Include="bin/Hosteria.Negocio.pdb">
-      <publishTime>05/29/2019 00:03:04</publishTime>
+      <publishTime>05/29/2019 01:28:43</publishTime>
     </File>
     <File Include="bin/Hosteria.Negocio.Tipos.dll">
       <publishTime>05/24/2019 17:29:27</publishTime>
@@ -34,13 +34,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/24/2019 17:29:27</publishTime>
     </File>
     <File Include="bin/Hosteria.Store.dll">
-      <publishTime>05/29/2019 00:03:02</publishTime>
+      <publishTime>05/29/2019 01:28:42</publishTime>
     </File>
     <File Include="bin/Hosteria.Store.dll.config">
       <publishTime>04/17/2019 16:19:55</publishTime>
     </File>
     <File Include="bin/Hosteria.Store.pdb">
-      <publishTime>05/29/2019 00:03:02</publishTime>
+      <publishTime>05/29/2019 01:28:42</publishTime>
     </File>
     <File Include="bin/Hosteria.Tipos.dll">
       <publishTime>05/29/2019 00:03:02</publishTime>
@@ -58,7 +58,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/18/2019 02:05:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/29/2019 00:03:06</publishTime>
+      <publishTime>05/29/2019 01:28:44</publishTime>
     </File>
     <File Include="ServicioEmpresa.svc">
       <publishTime>04/10/2019 18:25:51</publishTime>

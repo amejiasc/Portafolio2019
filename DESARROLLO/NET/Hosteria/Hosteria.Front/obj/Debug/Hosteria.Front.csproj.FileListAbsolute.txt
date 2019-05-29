@@ -270,3 +270,5 @@ D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hos
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Front\obj\Debug\Hosteria.Front.csproj.CopyComplete
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Front\obj\Debug\Hosteria.Front.dll
 D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Front\obj\Debug\Hosteria.Front.pdb
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Front\bin\EPPlus.dll
+D:\Estudios\Portafolio\SW\Repositorio\amejiasc\Portafolio2019\DESARROLLO\NET\Hosteria\Hosteria.Front\bin\EPPlus.xml

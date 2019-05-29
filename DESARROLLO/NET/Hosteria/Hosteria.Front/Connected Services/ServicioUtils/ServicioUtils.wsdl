@@ -30,6 +30,8 @@
       <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUtils.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUtils.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUtils.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUtils.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Negocio" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioUtils.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicioUtils_Regiones_InputMessage">
@@ -44,6 +46,12 @@
   <wsdl:message name="IServicioUtils_Comunas_OutputMessage">
     <wsdl:part name="parameters" element="tns:ComunasResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioUtils_Ejecutor_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ejecutor" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUtils_Ejecutor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EjecutorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioUtils">
     <wsdl:operation name="Regiones">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUtils/Regiones" message="tns:IServicioUtils_Regiones_InputMessage" />
@@ -52,6 +60,10 @@
     <wsdl:operation name="Comunas">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUtils/Comunas" message="tns:IServicioUtils_Comunas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioUtils/ComunasResponse" message="tns:IServicioUtils_Comunas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ejecutor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUtils/Ejecutor" message="tns:IServicioUtils_Ejecutor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUtils/EjecutorResponse" message="tns:IServicioUtils_Ejecutor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioUtils" type="tns:IServicioUtils">
@@ -74,6 +86,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Ejecutor">
+      <soap:operation soapAction="http://tempuri.org/IServicioUtils/Ejecutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpsBinding_IServicioUtils" type="tns:IServicioUtils">
     <wsp:PolicyReference URI="#BasicHttpsBinding_IServicioUtils_policy" />
@@ -89,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="Comunas">
       <soap:operation soapAction="http://tempuri.org/IServicioUtils/Comunas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ejecutor">
+      <soap:operation soapAction="http://tempuri.org/IServicioUtils/Ejecutor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
