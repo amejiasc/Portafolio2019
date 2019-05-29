@@ -65,7 +65,7 @@ namespace Hosteria.Store
                         EstadoReserva = int.Parse(reader.GetValue(6).ToString()),
                         IdSucursal = int.Parse(reader.GetValue(7).ToString()),
                         NombreSucursal = (string)reader.GetValue(8),
-                        Monto = int.Parse(reader.GetValue(9).ToString()),
+                        Monto = int.Parse(reader.GetValue(9).ToString())                         
                     });
                 }
                 reader.Close();

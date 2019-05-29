@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="95667e46-c4dc-41e2-af9c-e0ad82e9c790" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Hosteria.Negocio/ServicioUsuario.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioUsuario.xsd" MetadataType="Schema" ID="f2f30de6-dbc5-4c49-993e-c25175a59102" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioUsuario1.xsd" MetadataType="Schema" ID="5cad11ca-2659-453c-9da3-4295ef50bf80" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioUsuario.disco" MetadataType="Disco" ID="ea2dcdee-62cf-4ba7-b9b8-af6e91464b38" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?disco" />
+    <MetadataFile FileName="ServicioUsuario2.xsd" MetadataType="Schema" ID="a78c9f93-f9ad-4a83-bcc9-b2f91e7a18c5" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioUsuario3.xsd" MetadataType="Schema" ID="7f9ae45c-d8ef-47a5-8264-6d069f6372d3" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioUsuario.wsdl" MetadataType="Wsdl" ID="6378d066-b592-48ac-be60-51be8819c34e" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?wsdl" />
+    <MetadataFile FileName="ServicioUsuario4.xsd" MetadataType="Schema" ID="4e7a4ee2-f222-48ea-a8c3-cd3dceafa729" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioUsuario.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -44,13 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comuna.cs" />
+    <Compile Include="Empresa.cs" />
+    <Compile Include="Entrada\EntradaEmpresaCrear.cs" />
     <Compile Include="Entrada\EntradaReservaListar.cs" />
     <Compile Include="Entrada\EntradaUsuarioCrear.cs" />
     <Compile Include="Entrada\EntradaUsuarioLogin.cs" />
     <Compile Include="Entrada\EntradaUsuarioTraer.cs" />
+    <Compile Include="Notificacion.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Reserva.cs" />
     <Compile Include="Respuesta\RespuestaEjecutor.cs" />
+    <Compile Include="Respuesta\RespuestaEmpresaCrear.cs" />
+    <Compile Include="Respuesta\RespuestaEmpresaModificar.cs" />
+    <Compile Include="Respuesta\RespuestaEmpresasListar.cs" />
+    <Compile Include="Respuesta\RespuestaEmpresasTraer.cs" />
     <Compile Include="Respuesta\RespuestaReservaHabitaciones.cs" />
     <Compile Include="Respuesta\RespuestaReservaListar.cs" />
     <Compile Include="Respuesta\RespuestaReservaPasajeros.cs" />

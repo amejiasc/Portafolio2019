@@ -108,7 +108,7 @@ namespace Hosteria.Store
             }
         }
 
-        public DataSet Ejecutor(string sql) {
+        public DataSet Ejecutor(string sql, int tipoConsulta) {
 
             OracleConnection conn = new OracleConnection(ConnString);
             try
@@ -117,8 +117,23 @@ namespace Hosteria.Store
                 OracleDataAdapter productsAdapter = new OracleDataAdapter();
 
                 //Fetch Product Details
-                productsAdapter.SelectCommand = new OracleCommand(sql, conn);
-
+                switch (tipoConsulta)
+                {
+                    case 1:
+                        productsAdapter.SelectCommand = new OracleCommand(sql, conn);
+                        break;
+                    case 2:
+                        productsAdapter.InsertCommand = new OracleCommand(sql, conn);
+                        break;
+                    case 3:
+                        productsAdapter.UpdateCommand = new OracleCommand(sql, conn);
+                        break;
+                    case 4:
+                        productsAdapter.DeleteCommand = new OracleCommand(sql, conn);
+                        break;
+                    default:
+                        return null;
+                }
                 //Instantiate DataSet object
                 DataSet dataset = new DataSet("Result");
 

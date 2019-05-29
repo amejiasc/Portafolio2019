@@ -1,4 +1,5 @@
-﻿using Hosteria.Clases.Entrada;
+﻿using Hosteria.Clases;
+using Hosteria.Clases.Entrada;
 using Hosteria.Clases.Respuesta;
 using Hosteria.Negocio.Tipos;
 using Hosteria.Tipos.Store;
@@ -18,9 +19,11 @@ namespace Hosteria.Negocio
     {
 
         Hosteria.Tipos.Store.IServicioUsuario servicioUsuario;
+        Hosteria.Store.ServicioEmpresa servicioEmpresa;
         public ServicioUsuario()
         {
             servicioUsuario = new Store.ServicioUsuario();
+            servicioEmpresa = new Store.ServicioEmpresa();
         }
 
         #region "Sincrono"        
@@ -53,7 +56,7 @@ namespace Hosteria.Negocio
             if (usuario == null)
             {
                 respuestaUsuario.Exito = false;
-                respuestaUsuario.MotivoNoExito = MotivoNoExitoLoginUsuario.UsuarioNoExiste;
+                respuestaUsuario.MotivoNoExito = MotivoNoExitoLogin.UsuarioNoExiste;
                 respuestaUsuario.Usuario = new Hosteria.Clases.Usuario();
                 return respuestaUsuario;
 
@@ -70,13 +73,48 @@ namespace Hosteria.Negocio
                 {
                     Exito = false,
                     IdSesion = Guid.Empty,
-                    MotivoNoExito = MotivoNoExitoLoginUsuario.ErrorNoControlado,
+                    MotivoNoExito = MotivoNoExitoLogin.ErrorNoControlado,
                     Usuario = new Clases.Usuario()
                 };
             }
             respuestaUsuario.Exito = true;
             respuestaUsuario.IdSesion = guid;
             respuestaUsuario.Usuario = (Hosteria.Clases.Usuario)usuario;
+
+            return respuestaUsuario;
+        }
+        public RespuestaClienteLogin LoginCliente(EntradaUsuarioLogin entradaDatos)
+        {
+            RespuestaClienteLogin respuestaUsuario = new RespuestaClienteLogin();
+
+            int IdCliente = servicioUsuario.TraerLoginCliente(entradaDatos.Rut, entradaDatos.Email, entradaDatos.Clave);
+            Empresa empresa = servicioEmpresa.Traer(IdCliente, "-1");
+            if (IdCliente.Equals(0))
+            {
+                respuestaUsuario.Exito = false;
+                respuestaUsuario.MotivoNoExito = MotivoNoExitoLogin.UsuarioNoExiste;
+                respuestaUsuario.Empresa = new Hosteria.Clases.Empresa();
+                return respuestaUsuario;
+
+            }
+            Guid guid = Guid.NewGuid();
+            try
+            {
+                servicioUsuario.CrearLoginCliente(empresa.RutCliente, guid);
+            }
+            catch (Exception ex)
+            {
+                return new RespuestaClienteLogin()
+                {
+                    Exito = false,
+                    IdSesion = Guid.Empty,
+                    MotivoNoExito = MotivoNoExitoLogin.ErrorNoControlado,
+                    Empresa = new Clases.Empresa()
+                };
+            }
+            respuestaUsuario.Exito = true;
+            respuestaUsuario.IdSesion = guid;
+            respuestaUsuario.Empresa = empresa;
 
             return respuestaUsuario;
         }

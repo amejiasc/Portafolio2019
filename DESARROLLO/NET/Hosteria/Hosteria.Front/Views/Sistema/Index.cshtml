@@ -1,7 +1,9 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    var usuarioAutenticado = Hosteria.Front.Negocio.Helper.Autenticacion.TraerUsuarioAutenticado();
+    var Empresa = usuarioAutenticado.RespuestaCliente.Empresa;
+    Empresa = Hosteria.Front.Negocio.Empresa.Traer(Empresa.IdCliente).Empresa;
 }
 
 <div class="panel-body">
@@ -14,60 +16,86 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane has-padding active" id="tab1">
-                <div class="panel-body">
-                    <h5 class="no-margin">Empresa</h5>
-                    <h4 class="no-margin-top">Nombre de la Empresa LTDA.</h4>
-                    <div class="col-lg-4">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Rut</label>
-                            <input type="text" class="form-control" placeholder="11.111.111-1">
+                <form method="post" name="frmModificar" id="frmModificar" action="@Url.Action("Modificar", "Sistema", new Hosteria.Front.Models.Cliente())">
+                    <input type="hidden" name="IdCliente" id="IdCliente" value="@Empresa.IdCliente" />
+                    <div class="panel-body">
+                        <h5 class="no-margin">Empresa</h5>
+                        <h4 class="no-margin-top">@Empresa.Nombrecliente</h4>
+                        @if (ViewBag.Modifica)
+                        {
+                        <div class="alert bg-success alert-styled-left">
+                            <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+                            <span class="text-semibold">@ViewBag.Mensaje</span>
+                        </div>
+                        }
+                        <div class="col-lg-4">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Rut</label>
+                                <input type="text" class="form-control" placeholder="11.111.111-1" name="RutCliente" id="RutCliente" value="@Empresa.RutCliente">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Nombre Cliente/Empresa</label>
+                                <input type="text" class="form-control" placeholder="Nombre Cliente/Empresa" name="NombreCliente" value="@Empresa.Nombrecliente">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" name="Direccion" value="@Empresa.Direccion">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Giro</label>
+                                <input type="text" class="form-control" name="Giro" value="@Empresa.Giro">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Región</label>
+                                <select class="bootstrap-select" data-width="100%" name="region" id="region" required>
+                                    <option value="">Seleccione</option>
+                                    @foreach (Hosteria.Clases.Region region in UtilConfig.Regiones())
+                                    {
+                                        <option value="@region.IdRegion" selected="@Empresa.Region.Equals(region.IdRegion)">@region.Nombre</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Comuna</label>
+                                <select class="bootstrap-select" data-width="100%" name="comuna" id="comuna" required>
+                                    @Html.Partial("../Utils/Comuna", new List<Hosteria.Clases.Comuna>())
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12"></div>
+                        <div class="col-lg-6">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="Email" required value="@Empresa.Email">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Clave</label>
+                                <input type="password" class="form-control" name="Clave" id="Clave" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Confirmación de Clave</label>
+                                <input type="password" class="form-control" name="Reclave" id="Reclave" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 form-group-2 text-right" style="margin:10px 0px 0px 0px;">
+                            <button type="submit" class="btn bg-danger btn-lg">GUARDAR</button>>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Nombres y Apellidos</label>
-                            <input type="text" class="form-control" placeholder="Nombres y Apellidos">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Dirección</label>
-                            <input type="text" class="form-control" placeholder="Calle 123">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Región</label>
-                            <select class="bootstrap-select" data-width="100%">
-                                <option value="00">Región Metropolitana</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Comuna</label>
-                            <select class="bootstrap-select" data-width="100%">
-                                <option value="00">Santiago</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-12"></div>
-                    <div class="col-lg-4">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Email</label>
-                            <input type="text" class="form-control" placeholder="correo@correo.cl">
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Clave</label>
-                            <input type="password" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-12 form-group-2 text-right" style="margin:10px 0px 0px 0px;">
-                        <a class="btn bg-danger btn-lg">GUARDAR</a>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="tab-pane has-padding" id="tab2">
                 <div class="panel-body">
@@ -163,3 +191,92 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script type="text/javascript">
+    (function ($) {
+        $(function () {
+            var comuna = "@Empresa.Comuna";
+            $("#region").change(function () {
+                $.ajax(
+                    {
+                        url: '@Url.Content("~/Utils/Comuna")?_region=' + $(this).val(),
+                        type: 'GET',
+                        data: "",
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            $("#comuna").html(data);
+                            $('#comuna').val(comuna);
+                            if ($("#comuna").val() == null)
+                            {
+                                $("#comuna").val("");
+                            }
+                            $('.bootstrap-select').selectpicker('refresh');
+                        },
+                        error: function (s, e) {
+                            alert('Error ' +  s.source);
+                        }
+                });
+            });
+            @if (!Empresa.Comuna.Equals(0)) {
+                @Html.Raw("window.setTimeout(\"$('#region').trigger('change');\", 100);");
+            }
+
+            $('#RutCliente').blur(function () {
+            var formId = $(this).closest("form").attr('id');
+            $(this)[0].setCustomValidity('');
+            $(this).removeClass("invalid");
+                if ($(this).val() == "") {
+                $(this)[0].setCustomValidity('Ingrese Rut');
+                $(this).addClass("invalid");
+                    }
+            else {
+                        var miRut = $.rut.formatear($(this).val());
+                        if ($.rut.validar(miRut) == false) {
+                    $(this)[0].setCustomValidity('Rut Invalido');
+                    $(this).addClass("invalid");
+                        }
+                    }
+                    if ($(this)[0].checkValidity()) {
+                $(this).addClass("valid");
+                $(this).val($.rut.formatear($(this).val()));
+                    }
+            });
+            $("#RutCliente").keypress(function (event) {
+                        var opc = false;
+                        var key = event.target.value;
+                    var tecla = (document.all) ? event.keyCode : event.which;
+                if (tecla == 13 || tecla == 9 || tecla == 8) {
+                    opc = true;
+                    if (tecla == 13) {
+                        $(this).next('inputs').focus();
+                }
+            }
+                if (tecla > 47 && tecla < 58) {
+                    opc = true;
+                }
+                if (tecla == 45) {
+                    opc = true;
+                }
+                if (tecla == 75) {
+                    opc = true;
+                }
+                if (tecla == 107) {
+                    opc = true;
+                }
+                return opc;
+            });
+            $('#RutCliente').focus(function () {
+                $(this).val($.rut.quitar_formato($(this).val()));
+            });
+            $('#Reclave').blur(function () {
+                var formId = $(this).closest("form").attr('id');
+                $(this)[0].setCustomValidity('');
+                $(this).removeClass("invalid");
+                if ($(this).val() != $('#Clave').val()) {
+                    $(this)[0].setCustomValidity('Re ingreso de clave no coincide');
+                }                
+            });
+        });
+    })(jQuery);
+    </script>
+}

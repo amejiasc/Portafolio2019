@@ -13,19 +13,27 @@
                 <div class="panel-body">
                     <h3>ACCESO CLIENTES</h3>
                     <div>
-                        <form method="post" action="@Url.Action("Index", "Sistema")">
+                        <form method="post" action="@Url.Action("Login", "Sistema")">
                             <div class="form-group-2 has-feedback has-feedback-left">
                                 <label>Rut</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="Rut" id="Rut" required>
                             </div>
                             <div class="form-group-2 has-feedback has-feedback-left">
                                 <label>Clave</label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="Clave" id="Clave" required>
                             </div>
+                            @if (ViewBag.Error)
+                            {
+                                <div class="alert bg-info alert-styled-left">
+                                    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+                                    <span class="text-semibold">@ViewBag.Mensaje</span>
+                                </div>                                
+                            }
                             <div class="form-group-2 text-center" style="margin:30px 0px 30px 0px;">
-                                <a class="btn bg-danger btn-lg" href="@Url.Action("Index", "Sistema")">INGRESAR</a>
+                                <button class="btn bg-danger btn-lg" type="submit">INGRESAR</button>
                             </div>
                         </form>
+                       
                     </div>
                     <a class="text-grey-800" href="@Url.Action("Registro", "Sistema")">REGISTRESE AQUÍ</a>
                     <a class="text-danger pull-right" href="@Url.Action("Clave", "Sistema")">¿OLVIDÓ SU CLAVE?</a>
@@ -40,3 +48,60 @@
     </div>
     <!-- /main content -->
 </div>
+@section Scripts {
+    <script type="text/javascript">
+    (function ($) {
+        $(function () {
+            //$("#locales").val(localSel);
+            $('#Rut').blur(function () {
+                var formId = $(this).closest("form").attr('id');
+                $(this)[0].setCustomValidity('');
+                $(this).removeClass("invalid");
+                if ($(this).val() == "") {
+                    $(this)[0].setCustomValidity('Ingrese Rut');
+                    $(this).addClass("invalid");
+                }
+                else {
+                    var miRut = $.rut.formatear($(this).val());
+                    if ($.rut.validar(miRut) == false) {
+                        $(this)[0].setCustomValidity('Rut Invalido');
+                        $(this).addClass("invalid");
+                    }
+                }
+                if ($(this)[0].checkValidity()) {
+                    $(this).addClass("valid");
+                    $(this).val($.rut.formatear($(this).val()));
+                }
+            });
+            $("#Rut").keypress(function (event) {
+                var opc = false;
+                var key = event.target.value;
+                var tecla = (document.all) ? event.keyCode : event.which;
+                if (tecla == 13 || tecla == 9 || tecla == 8) {
+                    opc = true;
+                    if (tecla == 13) {
+                        $(this).next('inputs').focus();
+                    }
+                }
+                if (tecla > 47 && tecla < 58) {
+                    opc = true;
+                }
+                if (tecla == 45) {
+                    opc = true;
+                }
+                if (tecla == 75) {
+                    opc = true;
+                }
+                if (tecla == 107) {
+                    opc = true;
+                }
+                return opc;
+            });
+            $('#Rut').focus(function () {
+                $(this).val($.rut.quitar_formato($(this).val()));
+            });
+        });
+    })(jQuery);
+    </script>
+}
+

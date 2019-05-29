@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases" />
+  <xs:complexType name="RespuestaEmpresaCrear">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Empresa" nillable="true" type="q1:Empresa" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoExitoEmpresaCrear" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaEmpresaCrear" nillable="true" type="tns:RespuestaEmpresaCrear" />
+  <xs:simpleType name="MotivoNoExitoEmpresaCrear">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="ErrorNoControlado" />
+      <xs:enumeration value="EmpresayaExiste" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoExitoEmpresaCrear" nillable="true" type="tns:MotivoNoExitoEmpresaCrear" />
+  <xs:complexType name="RespuestaEmpresaModificar">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Empresa" nillable="true" type="q2:Empresa" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoExitoEmpresaModificar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaEmpresaModificar" nillable="true" type="tns:RespuestaEmpresaModificar" />
+  <xs:simpleType name="MotivoNoExitoEmpresaModificar">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="ErrorNoControlado" />
+      <xs:enumeration value="EmpresayaExiste" />
+      <xs:enumeration value="EmpresaNoExiste" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoExitoEmpresaModificar" nillable="true" type="tns:MotivoNoExitoEmpresaModificar" />
+  <xs:complexType name="RespuestaEmpresasListar">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Empresas" nillable="true" type="q3:ArrayOfEmpresa" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoExitoEmpresaListar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaEmpresasListar" nillable="true" type="tns:RespuestaEmpresasListar" />
+  <xs:simpleType name="MotivoNoExitoEmpresaListar">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="NoHayDatos" />
+      <xs:enumeration value="ErrorNoControlado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoExitoEmpresaListar" nillable="true" type="tns:MotivoNoExitoEmpresaListar" />
+  <xs:complexType name="RespuestaEmpresasTraer">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Hosteria.Clases" minOccurs="0" name="Empresa" nillable="true" type="q4:Empresa" />
+      <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotivoNoExito" type="tns:MotivoNoExitoEmpresaTraer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaEmpresasTraer" nillable="true" type="tns:RespuestaEmpresasTraer" />
+  <xs:simpleType name="MotivoNoExitoEmpresaTraer">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exito" />
+      <xs:enumeration value="NoExiste" />
+      <xs:enumeration value="ErrorNoControlado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MotivoNoExitoEmpresaTraer" nillable="true" type="tns:MotivoNoExitoEmpresaTraer" />
+</xs:schema>

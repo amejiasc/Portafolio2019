@@ -26,10 +26,16 @@
                                 <input type="text" class="form-control" name="NombreCliente" required>
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-8">
                             <div class="form-group-2 has-feedback has-feedback-left">
                                 <label>Dirección</label>
                                 <input type="text" class="form-control" name="Direccion">
+                            </div>                                              
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Giro</label>
+                                <input type="text" class="form-control" name="Giro">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -67,7 +73,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group-2 has-feedback has-feedback-left">
-                                <label>Re-Clave</label>
+                                <label>Confirmación de Clave</label>
                                 <input type="password" class="form-control" name="Reclave" id="Reclave" maxlength="10" required>
                             </div>
                         </div>
@@ -85,8 +91,7 @@
     <!-- /main content -->
 </div>
 <!-- /page content -->
-@section Scripts {
-
+@section Scripts {  
     <script type="text/javascript">
     (function ($) {
         $(function () {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hosteria.Clases.Entrada;
+using Hosteria.Clases.Respuesta;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,6 +15,12 @@ namespace Hosteria.Negocio
     public interface IServicioEmpresa
     {
         [OperationContract]
-        Task DoWork();
+        RespuestaEmpresaCrear CrearEmpresa(EntradaEmpresaCrear entradaEmpresaCrear);
+        [OperationContract]
+        RespuestaEmpresaModificar ModificarEmpresa(EntradaEmpresaModificar entradaEmpresaModificar);
+        [OperationContract]
+        RespuestaEmpresasListar ListarEmpresas();
+        [OperationContract]
+        RespuestaEmpresasTraer TraerEmpresa(int idEmpresa, string rutEmpresa);
     }
 }

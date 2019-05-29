@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1634c215-8dbb-4f1d-bb23-008f38270fd7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Hosteria.Negocio/ServicioReserva.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioReserva.disco" MetadataType="Disco" ID="c7bd9ed8-b36f-42b8-ba25-a5a65c340730" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?disco" />
+    <MetadataFile FileName="ServicioReserva.wsdl" MetadataType="Wsdl" ID="83cfaf9e-801c-425d-9b84-18f50f29f246" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?wsdl" />
+    <MetadataFile FileName="ServicioReserva.xsd" MetadataType="Schema" ID="098969d1-ee9f-447b-8152-8ffc25e9f6d7" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServicioReserva1.xsd" MetadataType="Schema" ID="742b9992-f379-4feb-8fc5-fd776a78ab6c" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioReserva2.xsd" MetadataType="Schema" ID="f5157854-9c31-4106-b305-cf5e1f3bdc63" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioReserva3.xsd" MetadataType="Schema" ID="6a9f76fd-2288-42d5-9a5b-52d9afc37c56" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioReserva4.xsd" MetadataType="Schema" ID="9d6210ca-b59f-4ad4-9a5e-733bf014938a" SourceId="1" SourceUrl="http://localhost/Hosteria.Negocio/ServicioReserva.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

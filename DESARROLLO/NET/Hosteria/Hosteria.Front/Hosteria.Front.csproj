@@ -129,11 +129,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UtilConfig.cs" />
-    <Compile Include="Connected Services\ServicioUsuario\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\ServicioUtils\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,13 +144,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario.disco" />
-    <None Include="Connected Services\ServicioUsuario\configuration91.svcinfo" />
-    <None Include="Connected Services\ServicioUsuario\configuration.svcinfo" />
-    <None Include="Connected Services\ServicioUsuario\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\ServicioUtils\ServicioUtils.disco" />
     <None Include="Connected Services\ServicioUtils\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioUtils\configuration.svcinfo" />
@@ -416,22 +404,6 @@
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario.wsdl" />
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioUsuario\ServicioUsuario4.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Properties\DataSources\Hosteria.Clases.Respuesta.RespuestaUsuarioTraer.datasource" />
     <Content Include="Properties\DataSources\Hosteria.Clases.Respuesta.RespuestaUsuarioLogin.datasource" />
     <Content Include="Content\.DS_Store" />
@@ -582,9 +554,12 @@
       <Project>{d4a3c609-9b01-42d5-8086-7431eaaeebad}</Project>
       <Name>Hosteria.Front.Integracion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hosteria.Front.Negocio\Hosteria.Front.Negocio.csproj">
+      <Project>{7839a859-e692-4e25-a3ac-a640dc5343c4}</Project>
+      <Name>Hosteria.Front.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioUsuario\" />
     <WCFMetadataStorage Include="Connected Services\ServicioUtils\" />
   </ItemGroup>
   <PropertyGroup>

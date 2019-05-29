@@ -13,7 +13,9 @@ namespace Hosteria.Tipos.Store
         bool Eliminar(IUsuario usuario);
         IUsuario Traer(int idUsuario, string rut);
         int TraerLogin(string rut, string email, string clave);
+        int TraerLoginCliente(string rut, string email, string clave);
         void CrearLoginUsuario(string rut, Guid guid);
+        void CrearLoginCliente(string rut, Guid guid);
         List<IUsuario> Listar(int idUsuario, string rut);
     }
 

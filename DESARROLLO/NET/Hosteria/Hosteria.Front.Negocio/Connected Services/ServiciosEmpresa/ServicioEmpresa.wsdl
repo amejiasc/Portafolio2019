@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioEmpresa" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IServicioEmpresa_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Entrada" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases" />
+      <xsd:import schemaLocation="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Hosteria.Clases.Respuesta" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioEmpresa_CrearEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_CrearEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_ModificarEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_ModificarEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_ListarEmpresas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_ListarEmpresas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_TraerEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraerEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEmpresa_TraerEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraerEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioEmpresa">
+    <wsdl:operation name="CrearEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEmpresa/CrearEmpresa" message="tns:IServicioEmpresa_CrearEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEmpresa/CrearEmpresaResponse" message="tns:IServicioEmpresa_CrearEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEmpresa/ModificarEmpresa" message="tns:IServicioEmpresa_ModificarEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEmpresa/ModificarEmpresaResponse" message="tns:IServicioEmpresa_ModificarEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEmpresa/ListarEmpresas" message="tns:IServicioEmpresa_ListarEmpresas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEmpresa/ListarEmpresasResponse" message="tns:IServicioEmpresa_ListarEmpresas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEmpresa/TraerEmpresa" message="tns:IServicioEmpresa_TraerEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEmpresa/TraerEmpresaResponse" message="tns:IServicioEmpresa_TraerEmpresa_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioEmpresa" type="tns:IServicioEmpresa">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/CrearEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/ModificarEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresas">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/ListarEmpresas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/TraerEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IServicioEmpresa" type="tns:IServicioEmpresa">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IServicioEmpresa_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/CrearEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/ModificarEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresas">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/ListarEmpresas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IServicioEmpresa/TraerEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioEmpresa">
+    <wsdl:port name="BasicHttpBinding_IServicioEmpresa" binding="tns:BasicHttpBinding_IServicioEmpresa">
+      <soap:address location="http://localhost/Hosteria.Negocio/ServicioEmpresa.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IServicioEmpresa" binding="tns:BasicHttpsBinding_IServicioEmpresa">
+      <soap:address location="https://amejias8.serviex.local/Hosteria.Negocio/ServicioEmpresa.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

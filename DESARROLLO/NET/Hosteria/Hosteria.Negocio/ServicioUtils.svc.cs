@@ -52,7 +52,7 @@ namespace Hosteria.Negocio
             }
 
             Clases.Respuesta.RespuestaEjecutor respuesta = new Clases.Respuesta.RespuestaEjecutor();
-            DataSet dataset = ServicioUtil.Ejecutor(sql);
+            DataSet dataset = ServicioUtil.Ejecutor(sql, (int)tipoConsulta);
 
             if (dataset == null)
             {

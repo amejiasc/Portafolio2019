@@ -13,7 +13,7 @@ namespace Hosteria.Clases.Respuesta
         [DataMember]
         public bool Exito { get; set; }
         [DataMember]
-        public MotivoNoExitoLoginUsuario MotivoNoExito { get; set; }
+        public MotivoNoExitoLogin MotivoNoExito { get; set; }
 
         [DataMember]
         public Clases.Usuario Usuario { get; set; }
@@ -23,7 +23,22 @@ namespace Hosteria.Clases.Respuesta
 
     }
     [DataContract]
-    public enum MotivoNoExitoLoginUsuario
+    public class RespuestaClienteLogin
+    {
+        [DataMember]
+        public bool Exito { get; set; }
+        [DataMember]
+        public MotivoNoExitoLogin MotivoNoExito { get; set; }
+
+        [DataMember]
+        public Clases.Empresa Empresa { get; set; }
+
+        [DataMember]
+        public Guid IdSesion { get; set; }
+
+    }
+    [DataContract]
+    public enum MotivoNoExitoLogin
     {
         [EnumMember]
         Exito = 0,

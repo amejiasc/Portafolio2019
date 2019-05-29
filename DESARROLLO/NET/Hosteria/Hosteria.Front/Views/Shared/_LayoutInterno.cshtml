@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+
+    var usuarioAutenticado = Hosteria.Front.Negocio.Helper.Autenticacion.TraerUsuarioAutenticado();
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -45,9 +50,9 @@
         <div class="navbar-collapse collapse" id="navbar-mobile">
             <ul class="nav navbar-nav navbar-right">
                 <li class="operador">
-                    <a class="info-operador" style="font-size: 16px">Bienvenido(a), Nombre Cliente <i class="icon-user"></i></a>
+                    <a class="info-operador" style="font-size: 16px">Bienvenido(a), @usuarioAutenticado.RespuestaCliente.Empresa.Nombrecliente<i class="icon-user"></i></a>
 
-                    <a href="@Url.Action("Login", "Sistema")" style="text-align: right;font-size: 14px"><span>CERRAR SESIÓN</span> <i class="icon-cancel-circle2"></i></a>
+                    <a href="@Url.Action("CerrarSesion", "Sistema")" style="text-align: right;font-size: 14px"><span>CERRAR SESIÓN</span> <i class="icon-cancel-circle2"></i></a>
                 </li>
             </ul>
 
@@ -80,3 +85,4 @@
 </body>
 
 </html>
+@RenderSection("Scripts", required: false)

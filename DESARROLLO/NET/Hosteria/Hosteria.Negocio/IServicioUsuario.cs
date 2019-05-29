@@ -20,6 +20,9 @@ namespace Hosteria.Negocio
 
         [OperationContract]
         RespuestaUsuarioLogin LoginUsuario(EntradaUsuarioLogin entradaDatos);
+
+        [OperationContract]
+        RespuestaClienteLogin LoginCliente(EntradaUsuarioLogin entradaDatos);
     }
 
 }

@@ -16,7 +16,6 @@ namespace Hosteria.Store
             ConnString = ConfigurationManager.ConnectionStrings["OracleDb"].ConnectionString;
         }
 
-        #region "Sincronos"
         public bool Actualizar(IUsuario usuario)
         {
             throw new NotImplementedException();
@@ -121,6 +120,43 @@ namespace Hosteria.Store
                 conn.Close();
             }
         }
+        public int TraerLoginCliente(string rut, string email, string clave)
+        {
+            OracleConnection conn = new OracleConnection(ConnString);
+            try
+            {
+                conn.Open();
+
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PKG_USUARIO.SP_LOGINCLIENTE";
+
+                cmd.Parameters.Add(new OracleParameter("p_Rut", OracleDbType.Varchar2, rut.ToString(), System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_Email", OracleDbType.Varchar2, email.ToString(), System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_Clave", OracleDbType.Varchar2, clave.ToString(), System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_IdCliente", OracleDbType.Int32, System.Data.ParameterDirection.Output));
+                OracleParameter oraP = new OracleParameter("p_glosa", OracleDbType.Varchar2, 2000);
+                oraP.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(oraP);
+                cmd.Parameters.Add(new OracleParameter("p_estado", OracleDbType.Int32, System.Data.ParameterDirection.Output));
+
+                cmd.ExecuteNonQuery();
+
+                return int.Parse(cmd.Parameters["p_IdCliente"].Value.ToString());
+
+
+
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void CrearLoginUsuario(string rut, Guid guid) {
             OracleConnection conn = new OracleConnection(ConnString);
             try
@@ -151,7 +187,37 @@ namespace Hosteria.Store
                 conn.Close();
             }
         }
-        #endregion
+        public void CrearLoginCliente(string rut, Guid guid)
+        {
+            OracleConnection conn = new OracleConnection(ConnString);
+            try
+            {
+                conn.Open();
+
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PKG_USUARIO.SP_LoginSesionCliente";
+
+                cmd.Parameters.Add(new OracleParameter("p_RutCliente", OracleDbType.Varchar2, rut.ToString(), System.Data.ParameterDirection.Input));
+                cmd.Parameters.Add(new OracleParameter("p_IdSession", OracleDbType.Varchar2, guid.ToString(), System.Data.ParameterDirection.Input));
+                OracleParameter oraP = new OracleParameter("p_glosa", OracleDbType.Varchar2, 2000);
+                oraP.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(oraP);
+                cmd.Parameters.Add(new OracleParameter("p_estado", OracleDbType.Int32, System.Data.ParameterDirection.Output));
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Concat("Ha ocurrido un error: ", ex.Message));
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
 
     }

@@ -1,8 +1,8 @@
-﻿@{
+﻿@model Hosteria.Front.Models.Cliente
+@{
     ViewBag.Title = "Registro";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
-
 <!-- Page content -->
 <div class="page-content">
     <!-- Main content -->
@@ -11,78 +11,74 @@
         <div class="content pb-20">
             <!-- Tabbed form -->
             <div class="panel login-form width-800">
-
-                <div class="panel-body">
-                    <h3>REGISTRO DE USUARIO</h3>
-                    <div class="col-lg-4">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Rut</label>
-                            <input type="text" class="form-control">
+                <form method="post" action="@Url.Action("Registro", "Sistema")">
+                    <div class="panel-body">
+                        <h3>REGISTRO DE CLIENTE</h3>
+                        <div class="col-lg-4">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Rut</label>
+                                <input type="text" class="form-control" name="RutCliente" id="RutCliente" rquired>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Nombres y Apellidos</label>
+                                <input type="text" class="form-control" name="NombreCliente" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" name="Direccion">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Región</label>
+                                <select class="bootstrap-select" data-width="100%" name="region" id="region" required>
+                                    <option value="">Seleccione</option>
+                                    @foreach (Hosteria.Clases.Region region in UtilConfig.Regiones())
+                                    {
+                                        <option value="@region.IdRegion">@region.Nombre</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Comuna</label>
+                                <select class="bootstrap-select" data-width="100%" name="comuna" id="comuna" required>
+                                    @Html.Partial("../Utils/Comuna", new List<Hosteria.Clases.Comuna>())
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12"></div>
+                        <div class="col-lg-6">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="Email" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Clave</label>
+                                <input type="password" class="form-control" name="Clave" id="Clave" maxlength="10" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group-2 has-feedback has-feedback-left">
+                                <label>Re-Clave</label>
+                                <input type="password" class="form-control" name="Reclave" id="Reclave" maxlength="10" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 form-group-2 text-right" style="margin:10px 0px 0px 0px;">
+                            <a class="btn btn-lg bg-grey" href="@Url.Action("Login", "Sistema")">CANCELAR</a>
+                            <button type="submit" class="btn bg-danger btn-lg">ACEPTAR</button>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Nombres y Apellidos</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Dirección</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Región</label>
-                            <select class="bootstrap-select" data-width="100%" name="region" id="region">
-                                <option value="">Seleccione</option>
-                                @foreach (Hosteria.Clases.Region region in UtilConfig.Regiones())
-                                {
-                                    <option value="@region.IdRegion">@region.Nombre</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Comuna</label>
-                            <select class="bootstrap-select" data-width="100%" name="comuna" id="comuna" required>
-                                @Html.Partial("../Utils/Comuna", new List<Hosteria.Clases.Comuna>())
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-12"></div>
-                    <div class="col-lg-4">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Email</label>
-                            <input type="email" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-
-                        <div class="form-group-2 has-feedback has-feedback-left">
-                            <label>Clave</label>
-                            <input type="password" class="form-control">
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-12 form-group-2 text-right" style="margin:10px 0px 0px 0px;">
-                        <a class="btn btn-lg bg-grey" href="@Url.Action("Login", "Sistema")">CANCELAR</a>
-                        <a class="btn bg-danger btn-lg">ACEPTAR</a>
-                    </div>
-
-                </div>
+                </form>
             </div>
             <!-- /tabbed form -->
-
         </div>
         <!-- /content area -->
     </div>
@@ -97,25 +93,86 @@
             //$("#locales").val(localSel);
             $("#region").change(function () {
                 $.ajax(
-                {
-                    url: '@Url.Content("~/Utils/Comuna")?_region=' + $(this).val(),
-                    type: 'GET',
-                    data: "",
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) {
-                        alert(data);
-                        $("#comuna").html(data);
-                        if ($("#comuna").val() == null)
-                        {
-                            $("#comuna").val("");
+                    {
+                        url: '@Url.Content("~/Utils/Comuna")?_region=' + $(this).val(),
+                        type: 'GET',
+                        data: "",
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            $("#comuna").html(data);
+                            if ($("#comuna").val() == null)
+                            {
+                                $("#comuna").val("");
+                            }                       
+                            $('.bootstrap-select').selectpicker('refresh');
+                        },
+                        error: function (s, e) {
+                            alert('Error ' +  s.source);
                         }
-                        $('.bootstrap-select').selectpicker('refresh');
-                    },
-                    error: function (s, e) {
-                        alert('Error ' +  s.source);
-                    }
                 });
             });            
+
+            $('#RutCliente').blur(function () {
+                var formId = $(this).closest("form").attr('id');
+                $(this)[0].setCustomValidity('');
+                $(this).removeClass("invalid");
+                if ($(this).val() == "") {
+                    $(this)[0].setCustomValidity('Ingrese Rut');
+                    $(this).addClass("invalid");
+                }
+                else {
+                    var miRut = $.rut.formatear($(this).val());
+                    if ($.rut.validar(miRut) == false) {
+                        $(this)[0].setCustomValidity('Rut Invalido');
+                        $(this).addClass("invalid");
+                    }
+                }
+                if ($(this)[0].checkValidity()) {
+                    $(this).addClass("valid");
+                    $(this).val($.rut.formatear($(this).val()));
+                }
+            });
+            $("#RutCliente").keypress(function (event) {
+                var opc = false;
+                var key = event.target.value;
+                var tecla = (document.all) ? event.keyCode : event.which;
+                if (tecla == 13 || tecla == 9 || tecla == 8) {
+                    opc = true;
+                    if (tecla == 13) {
+                        $(this).next('inputs').focus();
+                    }
+                }
+                if (tecla > 47 && tecla < 58) {
+                    opc = true;
+                }
+                if (tecla == 45) {
+                    opc = true;
+                }
+                if (tecla == 75) {
+                    opc = true;
+                }
+                if (tecla == 107) {
+                    opc = true;
+                }
+                return opc;
+            });
+            $('#RutCliente').focus(function () {
+                $(this).val($.rut.quitar_formato($(this).val()));
+            });
+            $('#Reclave').blur(function () {
+                var formId = $(this).closest("form").attr('id');
+                $(this)[0].setCustomValidity('');
+                $(this).removeClass("invalid");
+                if ($(this).val() == "") {
+                    $(this)[0].setCustomValidity('Ingrese confirmación de su clave');
+
+                }
+                else {
+                    if ($(this).val() != $('#Clave').val()) {
+                        $(this)[0].setCustomValidity('Re ingreso de clave no coincide');
+                    }
+                }
+            });
         });
     })(jQuery);
     </script>
